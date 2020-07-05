@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView style="@style/cardView"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:background="@android:color/holo_blue_light"
+        style="@style/linearDefault"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/imageCardView"
+            android:src="@drawable/vietnam"
+            android:scaleType="center"
+            android:layout_marginRight="20dp"
+            android:id="@+id/info_xuatXu" />
+
+        <LinearLayout style="@style/linearDefault"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info_loaiTB"
+                android:text="TEST"
+                style="@style/textViewCardView" />
+
+            <TextView
+                android:id="@+id/info_tenTB"
+                android:text="TEST"
+                style="@style/textViewCardView" />
+
+            <TextView
+                android:id="@+id/info_maTB"
+                android:text="TEST"
+                style="@style/textViewCardView" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
