@@ -10,12 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.quanlythietbi.R;
-
 import java.util.ArrayList;
-import java.util.Vector;
 
-import tdc.edu.vn.qltb.Class.ThietBi;
+import tdc.edu.vn.qlsv.Model.ThietBi;
+import tdc.edu.vn.qlsv.R;
+
 
 public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyViewHolder> {
     private int layoutID;
