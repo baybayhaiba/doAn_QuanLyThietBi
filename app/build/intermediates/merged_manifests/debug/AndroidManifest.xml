@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="tdc.edu.vn.qlsv.MainActivity" >
+        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.MainActivity" />
+        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.DangNhap" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

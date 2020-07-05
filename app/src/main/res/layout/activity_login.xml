@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="tdc.edu.vn.qltb.UI.DangNhap">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/logo"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="4">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:drawablePadding="5dp"
+            android:hint="@string/username"
+            android:id="@+id/edit_username"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:layout_below="@id/edit_username"
+            android:layout_marginTop="20dp"
+            android:id="@+id/edit_password"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center|top"
+        android:layout_weight="4">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:id="@+id/bt_login"
+            android:text="@string/login"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

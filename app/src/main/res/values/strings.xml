@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
+    <string name="app_name">QuanLyThietBi</string>
+    <string name="title">Quản lý thiết bị</string>
+    <string name="login">Đăng Nhập</string>
+    <string name="username">Tài khoản</string>
+    <string name="password">Mật khẩu</string>
+    <string name="bt_login">Login</string>
+    <string name="addDevice">Thêm Thiết Bị</string>
+    <string name="codeDevice">Mã Thiết Bị:</string>
+    <string name="nameDevice">Tên Thiết Bị:</string>
+    <string name="origin">Xuất xứ:</string>
+    <string name="code_type">Mã Loại:</string>
+    <string name="add">Thêm</string>
+    <string name="remove">Xóa</string>
+    <string name="update">Sửa</string>
+    <string name="clear">Clear</string>
+    <string name="tenLoai">Tên Loại</string>
+    <string name="maThietBi">Mã Thiết Bị</string>
+    <string name="chiTietSD">Chi Tiết Sử Dụng</string>
+    <string name="phongHoc">Phòng Học</string>
+    <string name="thietBi">Thiết Bị</string>
+    <string name="exit">Exit</string>
 </resources>

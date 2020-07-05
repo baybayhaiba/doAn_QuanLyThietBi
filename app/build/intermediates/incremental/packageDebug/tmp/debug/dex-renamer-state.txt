@@ -1,4 +1,4 @@
-#Sun Jul 05 16:38:02 ICT 2020
+#Sun Jul 05 16:46:47 ICT 2020
 base.0=C\:\\Androidstudio\\QuanLyThietBi\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
 path.0=classes.dex
 renamed.0=classes.dex

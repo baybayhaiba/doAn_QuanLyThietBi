@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    
+    android:orientation="vertical"
+    tools:context=".UI.ActivityDanhSach">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello world"/>
-
+        style="@style/title"
+        android:text="@string/title"/>
+    <ListView
+        android:layout_marginTop="20dp"
+        style="@style/listView"
+        android:id="@+id/list_hienThiDS"/>
 </LinearLayout>
