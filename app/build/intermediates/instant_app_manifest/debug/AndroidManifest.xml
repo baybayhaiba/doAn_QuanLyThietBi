@@ -19,8 +19,24 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.MainActivity" />
-        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.DangNhap" >
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityLoaiThietBi"
+            android:label="" />
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityThietBi"
+            android:label="" />
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityChiTietSD"
+            android:label="" />
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityPhongHoc"
+            android:label="" />
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.MainActivity"
+            android:label="Trang chủ" />
+        <activity
+            android:name="tdc.edu.vn.qlsv.GiaoDien.DangNhap"
+            android:label="@string/title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

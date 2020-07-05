@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".UI.ActivityThietBi">
+
+    <TextView
+        style="@style/title"
+        android:text="@string/thietBi" />
+
+    <EditText
+        android:id="@+id/edit_maTB"
+        style="@style/editText1" />
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:text="@string/nameDevice" />
+
+        <EditText
+            android:id="@+id/edit_tenTB"
+            style="@style/editText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:text="@string/origin" />
+
+        <Spinner
+            android:id="@+id/sp_xuatXu"
+            style="@style/spinner"
+            android:layout_marginLeft="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:text="@string/code_type" />
+
+        <Spinner
+            android:id="@+id/sp_maLoai"
+            style="@style/spinner"
+            android:layout_marginLeft="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/bt_add"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_add_circle_24"
+            android:text="@string/add" />
+
+        <Button
+            android:id="@+id/bt_remove"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_remove_circle_24"
+            android:text="@string/remove" />
+
+        <Button
+            android:id="@+id/bt_update"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_update_24"
+            android:text="@string/update" />
+
+        <Button
+            android:id="@+id/bt_clear"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_clear_all_24"
+            android:text="@string/clear" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewThietBi"
+        style="@style/listView"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>

@@ -27,9 +27,50 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setControl();
-//        setEvent();
+        setControl();
+        setEvent();
     }
+
+    private void setEvent() {
+        khoiTaoDuLieu();
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,data);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(MainActivity.this, ActivityLoaiThietBi.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this,ActivityThietBi.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, ActivityChiTietSD.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(MainActivity.this,ActivityPhongHoc.class));
+                        break;
+                }
+            }
+        });
+    }
+
+    private void setControl() {
+        list=findViewById(R.id.list_hienThiDS);
+        data=new ArrayList<>();
+    }
+
+
+
+    private void khoiTaoDuLieu(){
+        data.add("Thêm Loại Thiết Bị");
+        data.add("Thêm Thiết Bị");
+        data.add("Thêm Chi Tiết Sử Dụng");
+        data.add("Thêm Phòng Học");
+    }
+
+
 
 
 }

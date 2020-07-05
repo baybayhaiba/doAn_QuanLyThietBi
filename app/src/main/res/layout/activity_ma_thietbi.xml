@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="tdc.edu.vn.qltb.UI.ActivityLoaiThietBi">
+
+    <TextView
+        style="@style/title"
+        android:text="@string/maThietBi"/>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:text="@string/code_type" />
+
+        <EditText
+            android:id="@+id/edit_maLoai"
+            style="@style/editText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:text="@string/tenLoai" />
+
+        <EditText
+            android:id="@+id/edit_tenLoai"
+            android:inputType="text"
+            style="@style/editText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/bt_add"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_add_circle_24"
+            android:text="@string/add"
+            android:drawableLeft="@drawable/ic_baseline_add_circle_24" />
+
+        <Button
+            android:id="@+id/bt_remove"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_remove_circle_24"
+            android:text="@string/remove"
+            android:drawableLeft="@drawable/ic_baseline_remove_circle_24" />
+
+        <Button
+            android:id="@+id/bt_update"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_update_24"
+            android:text="@string/update"
+            android:drawableLeft="@drawable/ic_baseline_update_24" />
+
+        <Button
+            android:id="@+id/bt_clear"
+            style="@style/button"
+            android:drawableStart="@drawable/ic_baseline_clear_all_24"
+            android:text="@string/clear"
+            android:drawableLeft="@drawable/ic_baseline_clear_all_24" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_loaiTB"
+        style="@style/listView"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>

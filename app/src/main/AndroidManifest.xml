@@ -10,8 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiaoDien.MainActivity"/>
-        <activity android:name=".GiaoDien.DangNhap">
+        <activity android:name=".GiaoDien.ActivityLoaiThietBi" android:label=""/>
+        <activity android:name=".GiaoDien.ActivityThietBi" android:label=""/>
+        <activity android:name=".GiaoDien.ActivityChiTietSD" android:label=""/>
+        <activity android:name=".GiaoDien.ActivityPhongHoc" android:label=""/>
+        <activity android:name=".GiaoDien.MainActivity" android:label="Trang chủ"/>
+
+        <activity android:name=".GiaoDien.DangNhap" android:label="@string/title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
