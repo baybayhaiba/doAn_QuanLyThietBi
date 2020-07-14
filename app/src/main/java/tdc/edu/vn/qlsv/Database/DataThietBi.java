@@ -39,11 +39,12 @@ public class DataThietBi {
         Cursor cursor=db.rawQuery(sql,null);
         if(cursor.moveToFirst()){
             do{
+                int idThietBi=cursor.getInt(0);
                 String maThietBi=cursor.getString(1);
                 String tenThietBi=cursor.getString(2);
                 String xuatXu=cursor.getString(3);
                 String maLoai=cursor.getString(4);
-                listThietBi.add(new ThietBi(maThietBi,tenThietBi,xuatXu,maLoai));
+                listThietBi.add(new ThietBi(idThietBi,maThietBi,tenThietBi,xuatXu,maLoai));
             }while (cursor.moveToNext());
         }
         return listThietBi;
@@ -69,7 +70,7 @@ public class DataThietBi {
     }
     public void xoaThietBi(ThietBi thietBi){
         SQLiteDatabase db=handler.getWritableDatabase();
-        db.delete(Table_ThietBi.TABLE_NAME,Table_ThietBi.KEY_MATB+" =?",new String[]{thietBi.getMaTB()});
+        db.delete(Table_ThietBi.TABLE_NAME,Table_ThietBi.KEY_MATB+"=?",new String[]{String.valueOf(thietBi.getMaTB())});
     }
     public int suaThietBi(ThietBi thietBi){
         SQLiteDatabase db=handler.getWritableDatabase();
@@ -79,7 +80,7 @@ public class DataThietBi {
         values.put(Table_ThietBi.KEY_XUATXU,thietBi.getXuatXuTB());
         values.put(Table_ThietBi.KEY_MALOAI,thietBi.getMaLoaiTB());
 
-        return db.update(Table_ThietBi.TABLE_NAME,values,Table_ThietBi.KEY_MATB+" =?",new String[]{thietBi.getMaTB()});
+        return db.update(Table_ThietBi.TABLE_NAME,values,Table_ThietBi.KEY_MATB+"=?",new String[]{String.valueOf(thietBi.getMaTB())});
     }
 
 }

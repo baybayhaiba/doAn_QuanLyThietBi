@@ -1,23 +1,29 @@
 package tdc.edu.vn.qlsv.Model;
 
 public class ThietBi {
+    private  int id;
     private String maTB;
     private String tenTB;
     private String xuatXuTB;
     private String maLoaiTB;
 
-    public ThietBi(String maTB, String tenTB, String xuatXuTB, String maLoaiTB) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ThietBi(int id, String maTB, String tenTB, String xuatXuTB, String maLoaiTB) {
+        this.id = id;
         this.maTB = maTB;
         this.tenTB = tenTB;
         this.xuatXuTB = xuatXuTB;
         this.maLoaiTB = maLoaiTB;
     }
 
-    public ThietBi(String tenTB, String xuatXu, String maLoai) {
-        this.tenTB = tenTB;
-        this.xuatXuTB = xuatXuTB;
-        this.maLoaiTB = maLoaiTB;
-    }
+
 
     public String getMaTB() {
         return maTB;

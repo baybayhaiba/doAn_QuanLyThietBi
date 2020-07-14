@@ -62,6 +62,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            style="@style/textView"
+            android:layout_gravity="center"
+            android:text="Chữ ký" />
+
+        <ImageButton
+            android:id="@+id/bt_signature"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
         style="@style/linearBt"
         android:layout_marginTop="5dp">
 
@@ -88,8 +108,9 @@
             style="@style/button"
             android:drawableStart="@drawable/ic_baseline_clear_all_24"
             android:text="@string/clear" />
-
     </LinearLayout>
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewThietBi"

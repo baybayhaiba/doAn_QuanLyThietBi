@@ -48,16 +48,15 @@
         android:layout_marginTop="5dp">
 
         <Button
+            android:background="@drawable/set_status_button"
             android:id="@+id/bt_add"
             style="@style/button"
-            android:drawableStart="@drawable/ic_baseline_add_circle_24"
             android:text="@string/add"
             android:drawableLeft="@drawable/ic_baseline_add_circle_24" />
 
         <Button
             android:id="@+id/bt_remove"
             style="@style/button"
-            android:drawableStart="@drawable/ic_baseline_remove_circle_24"
             android:text="@string/remove"
             android:drawableLeft="@drawable/ic_baseline_remove_circle_24" />
 
@@ -74,7 +73,6 @@
             android:drawableStart="@drawable/ic_baseline_clear_all_24"
             android:text="@string/clear"
             android:drawableLeft="@drawable/ic_baseline_clear_all_24" />
-
     </LinearLayout>
 
     <ListView
