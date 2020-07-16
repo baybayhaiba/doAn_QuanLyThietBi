@@ -181,15 +181,7 @@ public class ActivityThietBi extends AppCompatActivity{
             public void onClick(View view) {
                 customSign.buildDrawingCache();
                 Bitmap signature=customSign.getDrawingCache();
-
-
-
-                try {
-                    img_signature.setImageBitmap(signature);
-                    signature.recycle();
-
-                }catch (Exception e){}
-
+               img_signature.setImageBitmap(signature);
             }
         });
         builder.setView(view);
