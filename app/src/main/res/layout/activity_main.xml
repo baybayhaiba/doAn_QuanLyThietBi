@@ -9,7 +9,7 @@
     <TextView
         style="@style/title"
         android:text="@string/title"/>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_marginTop="20dp"
         style="@style/listView"
         android:id="@+id/list_hienThiDS"/>

@@ -4,6 +4,7 @@ package tdc.edu.vn.qlsv.GiaoDien;
 //import androidx.appcompat.app.ActionBar;
 //import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -55,7 +56,7 @@ public class ActivityThietBi extends AppCompatActivity{
     DataThietBi databaseThietBi;
     CustomAdapterTB adapterTB;
     int index=-1;
-    CustomSign customSign;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +84,6 @@ public class ActivityThietBi extends AppCompatActivity{
         adapterTB=new CustomAdapterTB(R.layout.list_custom_thietbi,dataThietBi);
         recyclerViewThietBi.setAdapter(adapterTB);
 
-        img_signature.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createPopupDialog();
-            }
-        });
 
         //button listener
         bt_them.setOnClickListener(new View.OnClickListener() {
@@ -162,34 +157,7 @@ public class ActivityThietBi extends AppCompatActivity{
         }
         return true;
     }
-    private Bitmap getSignature(){
-        customSign.buildDrawingCache();
-        Bitmap signature=customSign.getDrawingCache();
 
-        ByteArrayOutputStream stream=new ByteArrayOutputStream();
-        signature.compress(Bitmap.CompressFormat.PNG,100,stream);
-        byte[] byteArray=stream.toByteArray();
-        return signature;
-    }
-    public void createPopupDialog(){
-        final AlertDialog.Builder builder=new AlertDialog.Builder(ActivityThietBi.this);
-        View view=getLayoutInflater().inflate(R.layout.signature,null);
-        customSign=view.findViewById(R.id.customSign);
-        bt_finish=view.findViewById(R.id.bt_finish);
-        bt_finish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customSign.buildDrawingCache();
-                Bitmap signature=customSign.getDrawingCache();
-               img_signature.setImageBitmap(signature);
-            }
-        });
-        builder.setView(view);
-        final AlertDialog show= builder.show();
-
-
-
-    }
     private void khoiTao() {
         dataXuatXu.add("Việt Nam");
         dataXuatXu.add("Mỹ");
@@ -216,7 +184,7 @@ public class ActivityThietBi extends AppCompatActivity{
         bt_sua=findViewById(R.id.bt_update);
         bt_clear=findViewById(R.id.bt_clear);
 
-        img_signature=findViewById(R.id.bt_signature);
+
 
         recyclerViewThietBi=findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
@@ -232,7 +200,7 @@ public class ActivityThietBi extends AppCompatActivity{
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
+        startActivity(new Intent(ActivityThietBi.this,MainActivity.class));
         return super.onOptionsItemSelected(item);
     }
 

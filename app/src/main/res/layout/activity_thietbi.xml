@@ -61,24 +61,6 @@
             android:layout_marginLeft="30sp" />
     </LinearLayout>
 
-    <LinearLayout
-       style="@style/linearDefault"
-        android:layout_margin="5dp"
-        android:layout_marginTop="5dp">
-
-        <TextView
-            style="@style/textView"
-            android:layout_gravity="center"
-            android:text="Chữ ký" />
-
-        <ImageButton
-            android:id="@+id/bt_signature"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30sp" />
-    </LinearLayout>
 
     <LinearLayout
         style="@style/linearBt"

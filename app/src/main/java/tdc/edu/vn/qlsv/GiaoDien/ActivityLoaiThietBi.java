@@ -4,6 +4,7 @@ package tdc.edu.vn.qlsv.GiaoDien;
 //import androidx.appcompat.app.ActionBar;
 //import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -121,7 +122,7 @@ public class ActivityLoaiThietBi extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
+        startActivity(new Intent(ActivityLoaiThietBi.this,MainActivity.class));
         return super.onOptionsItemSelected(item);
     }
 
