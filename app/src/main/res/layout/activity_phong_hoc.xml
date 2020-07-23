@@ -37,7 +37,7 @@
             android:text="Loại Phòng" />
 
         <EditText
-            android:id="@+id/edit_maTB"
+            android:id="@+id/edit_loaiPhong"
             style="@style/editText" />
 
     </LinearLayout>
@@ -90,7 +90,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listDevice"
+        android:id="@+id/listRoom"
         style="@style/listView"
         android:layout_marginTop="5dp" />
 

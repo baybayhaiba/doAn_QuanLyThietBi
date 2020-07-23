@@ -11,6 +11,7 @@ import tdc.edu.vn.qlsv.Model.LoaiThietBi;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.TableDatabase.Table_LoaiThietBi;
 import tdc.edu.vn.qlsv.TableDatabase.Table_PhongHoc;
+import tdc.edu.vn.qlsv.TableDatabase.Table_ThietBi;
 
 public class DataPhongHoc {
     DatabaseHandler handler;
@@ -54,5 +55,11 @@ public class DataPhongHoc {
         values.put(Table_PhongHoc.KEY_MAPHONG,PhongHoc.getMaPhong());
         values.put(Table_PhongHoc.KEY_LOAIPHONG,PhongHoc.getLoaiPhong());
         return db.update(Table_PhongHoc.TABLE_NAME,values,Table_PhongHoc.KEY_MAPHONG+"=?",new String[]{PhongHoc.getMaPhong()});
+    }
+    public int getCountPhongHoc(){
+        String sql="SELECT * from "+ Table_PhongHoc.TABLE_NAME;
+        SQLiteDatabase db=handler.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,null);
+        return cursor.getCount();
     }
 }

@@ -25,7 +25,7 @@ public class DataCTSD {
 
         values.put(Table_ChiTietSD.KEY_NGAYSD,ChiTietSuDung.getNgaySuDung());
         values.put(Table_ChiTietSD.KEY_MAPHONG,ChiTietSuDung.getMaPhong());
-        values.put(Table_ChiTietSD.KEY_MALOAI,ChiTietSuDung.getSoLuong());
+        values.put(Table_ChiTietSD.KEY_SOLUONG,ChiTietSuDung.getSoLuong());
         values.put(Table_ChiTietSD.KEY_MATB,ChiTietSuDung.getMaTB());
 
         db.insert(Table_ChiTietSD.TABLE_NAME,null,values);
@@ -79,10 +79,17 @@ public class DataCTSD {
 
         values.put(Table_ChiTietSD.KEY_NGAYSD,ChiTietSuDung.getNgaySuDung());
         values.put(Table_ChiTietSD.KEY_MAPHONG,ChiTietSuDung.getMaPhong());
-        values.put(Table_ChiTietSD.KEY_MALOAI,ChiTietSuDung.getSoLuong());
+        values.put(Table_ChiTietSD.KEY_SOLUONG,ChiTietSuDung.getSoLuong());
         values.put(Table_ChiTietSD.KEY_MATB,ChiTietSuDung.getMaTB());
 
         return db.update(Table_ChiTietSD.TABLE_NAME,values,Table_ChiTietSD.KEY_MATB+" =?",new String[]{ChiTietSuDung.getMaTB()});
     }
+    public int getCountCTSD(){
+        String sql="SELECT * from "+Table_ChiTietSD.TABLE_NAME;
+        SQLiteDatabase db=handler.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,null);
+        return cursor.getCount();
+    }
+
 
 }

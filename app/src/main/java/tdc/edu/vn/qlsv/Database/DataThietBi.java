@@ -53,7 +53,7 @@ public class DataThietBi {
     public int getCountByType(String maLoai){
         String sql="SELECT COUNT(*) " +
                 " from "+Table_ThietBi.TABLE_NAME
-                +" WHERE "+ Table_ThietBi.KEY_MALOAI +" = '"+maLoai+"' ";
+                +" WHERE "+ Table_ThietBi.KEY_ID +" = '"+maLoai+"' ";
         //SELECT COUNT(*)  from thietBi WHERE thietBi.maLoai="CS"
         SQLiteDatabase db=handler.getReadableDatabase();
         Cursor cursor=db.rawQuery(sql,null);
@@ -62,7 +62,7 @@ public class DataThietBi {
         return 0;
     }
     //dem tong san pham
-    public int getCount(){
+    public int getCountTB(){
         String sql="SELECT * from "+Table_ThietBi.TABLE_NAME;
         SQLiteDatabase db=handler.getReadableDatabase();
         Cursor cursor=db.rawQuery(sql,null);

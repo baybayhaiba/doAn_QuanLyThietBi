@@ -6,27 +6,20 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterMain;
+import tdc.edu.vn.qlsv.Database.DataCTSD;
 import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
+import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
 import tdc.edu.vn.qlsv.Model.Main;
+import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,12 +74,14 @@ public class MainActivity extends AppCompatActivity {
         data.add("Thêm Thiết Bị");
         data.add("Thêm Chi Tiết Sử Dụng");
         data.add("Thêm Phòng Học");
-        int countMaThietBi=new DataLoaiThietBi(this).getAllLoaiTB().size();
-        int countThietBi=new DataThietBi(this).getCount();
+        int countMaThietBi=new DataLoaiThietBi(this).getCountLTB();
+        int countThietBi=new DataThietBi(this).getCountTB();
+        int countPhongHoc=new DataPhongHoc(this).getCountPhongHoc();
+        int countCTSD=new DataCTSD(this).getCountCTSD();
         dataUI.add(new Main(R.drawable.mathietbi,"Mã Thiết Bị",countMaThietBi,Color.parseColor("#b794f6")));
         dataUI.add(new Main(R.drawable.thietbi,"Thiết Bị",countThietBi, Color.parseColor("#c6f68d")));
-        dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",0, Color.parseColor("#90ee02")));
-        dataUI.add(new Main(R.drawable.phonghoc,"Phòng Học",0, Color.parseColor("#ffc77d")));
+        dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",countCTSD, Color.parseColor("#90ee02")));
+        dataUI.add(new Main(R.drawable.phonghoc,"Phòng Học",countPhongHoc, Color.parseColor("#ffc77d")));
     }
 
     @Override

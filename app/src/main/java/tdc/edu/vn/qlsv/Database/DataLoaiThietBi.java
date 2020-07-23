@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import tdc.edu.vn.qlsv.Model.LoaiThietBi;
 import tdc.edu.vn.qlsv.TableDatabase.Table_LoaiThietBi;
+import tdc.edu.vn.qlsv.TableDatabase.Table_ThietBi;
 
 
 public class DataLoaiThietBi {
@@ -56,5 +57,11 @@ public class DataLoaiThietBi {
         values.put(Table_LoaiThietBi.KEY_MALOAI,loaiThietBi.getMaLoai());
         values.put(Table_LoaiThietBi.KEY_TENLOAI,loaiThietBi.getTenLoai());
         return db.update(Table_LoaiThietBi.TABLE_NAME,values,Table_LoaiThietBi.KEY_MALOAI+"=?",new String[]{loaiThietBi.getMaLoai()});
+    }
+    public int getCountLTB(){
+        String sql="SELECT * from "+Table_LoaiThietBi.TABLE_NAME;
+        SQLiteDatabase db=handler.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,null);
+        return cursor.getCount();
     }
 }
