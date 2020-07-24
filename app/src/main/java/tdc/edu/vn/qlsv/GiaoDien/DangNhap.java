@@ -56,7 +56,7 @@ public class DangNhap extends AppCompatActivity {
                     builder.create().show();
                 }
                 else {
-                    Intent intent = new Intent(DangNhap.this, MainActivity.class);
+                    Intent intent = new Intent(DangNhap.this,MainActivity.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("username",getTextUser);
                     intent.putExtras(bundle);
