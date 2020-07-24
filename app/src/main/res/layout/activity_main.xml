@@ -3,11 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@android:color/holo_purple"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".UI.ActivityDanhSach">
     <TextView
-        style="@style/title"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:background="@android:color/holo_orange_light"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
         android:text="@string/title"/>
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="20dp"

@@ -15,10 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
-import tdc.edu.vn.qlsv.Model.LoaiThietBi;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.R;
 

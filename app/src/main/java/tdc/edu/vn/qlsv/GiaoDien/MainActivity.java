@@ -19,7 +19,6 @@ import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
 import tdc.edu.vn.qlsv.Model.Main;
-import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.R;
 
 public class MainActivity extends AppCompatActivity {

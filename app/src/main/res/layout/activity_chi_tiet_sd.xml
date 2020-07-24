@@ -66,7 +66,7 @@
 
         <TextView
             style="@style/textView"
-            android:text="@string/code_type" />
+            android:text="Số Lượng:" />
 
         <EditText
            style="@style/editText"

@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class ActivitySplash extends AppCompatActivity {
 
     boolean running =true;
-    private  static int SPLASH_TIMER =7000;
+    private  static int SPLASH_TIMER =4000;
 
     Animation topAnim,bottomAim;
     TextView ThietBi;
