@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,15 +41,13 @@ public class ActivityThietBi extends AppCompatActivity{
     RecyclerView recyclerViewThietBi;
     EditText editTenTB,editMaTB;
 
-    Button bt_them,bt_xoa,bt_sua,bt_clear,bt_finish;
-    ImageButton img_signature;
+    Button bt_them,bt_xoa,bt_sua,bt_clear;
     //tao database de lay gia tri spinner maLoai
     DataLoaiThietBi databaseLTB;
     //luu tru database va lay tat ca
     DataThietBi databaseThietBi;
     CustomAdapterTB adapterTB;
     int index=-1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,26 +76,25 @@ public class ActivityThietBi extends AppCompatActivity{
         recyclerViewThietBi.setAdapter(adapterTB);
 
 
+
         //button listener
         bt_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ThietBi thietBi=getThietBi();
-                if(isValid()) {
-                    databaseThietBi.themThietbi(getThietBi());
-                    String dinhDangMaLoai = thietBi.getMaLoaiTB() + String.format("%02d",
-                            databaseThietBi.getCountByType(thietBi.getMaLoaiTB()));
-                    thietBi.setMaTB(dinhDangMaLoai);
-                    dataThietBi.add(thietBi);
-                    adapterTB.notifyDataSetChanged();
-                }
+                databaseThietBi.themThietbi(getThietBi());
+                String dinhDangMaLoai= thietBi.getMaLoaiTB()+String.format("%02d",
+                        databaseThietBi.getCountByType(thietBi.getMaLoaiTB()));
+                thietBi.setMaTB(dinhDangMaLoai);
+                dataThietBi.add(thietBi);
+                adapterTB.notifyDataSetChanged();
             }
         });
         bt_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(index!=-1) {
-                    databaseThietBi.xoaThietBi(dataThietBi.get(index));
+                    databaseThietBi.xoaThietBi(getThietBi());
                     dataThietBi.remove(index);
                     adapterTB.notifyItemRemoved(index);
                     index=-1;
@@ -113,16 +109,14 @@ public class ActivityThietBi extends AppCompatActivity{
                 sp_maLoai.setSelection(0);
                 sp_xuatXu.setSelection(0);
                 index=-1;
-
             }
         });
         bt_sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(index!=-1) {
-                    ThietBi thietBi=getThietBi();
                     databaseThietBi.suaThietBi(getThietBi());
-                    dataThietBi.set(index,thietBi);
+                    dataThietBi.set(index,getThietBi());
                     adapterTB.notifyItemChanged(index);
                 }else
                     Toast.makeText(ActivityThietBi.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
@@ -139,24 +133,16 @@ public class ActivityThietBi extends AppCompatActivity{
                 int positionLoaiTB=adapterLoaiTB.getPosition(databaseThietBi.getAllThietBi().get(index).getMaLoaiTB());
                 sp_xuatXu.setSelection(positionXuatXu);
                 sp_maLoai.setSelection(positionLoaiTB);
-                Toast.makeText(ActivityThietBi.this, ""+dataThietBi.get(index).getId(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-    //kiem tra xem du lieu dau vao co hop ly khong
-    private boolean isValid(){
-        if(this.editTenTB.getText().toString().equals("")) {
-            editTenTB.setError("Bạn nên nhập đầy đủ tên thiết bị");
-            return false;
-        }
-        return true;
     }
 
     private void khoiTao() {
         dataXuatXu.add("Việt Nam");
         dataXuatXu.add("Mỹ");
         dataXuatXu.add("Hàn");
-
+        dataXuatXu.add("Thái Lan");
+        dataXuatXu.add("Nhật");
         databaseLTB=new DataLoaiThietBi(this);
         for(LoaiThietBi loaiTB:databaseLTB.getAllLoaiTB())
             dataMaLoai.add(loaiTB.getMaLoai());
@@ -172,17 +158,13 @@ public class ActivityThietBi extends AppCompatActivity{
         editTenTB=findViewById(R.id.edit_tenTB);
         sp_maLoai=findViewById(R.id.sp_maLoai);
 
-
         bt_them=findViewById(R.id.bt_add);
         bt_xoa=findViewById(R.id.bt_remove);
         bt_sua=findViewById(R.id.bt_update);
         bt_clear=findViewById(R.id.bt_clear);
 
-
-
         recyclerViewThietBi=findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
-
     }
     private ThietBi getThietBi(){
         String tenTB=editTenTB.getText().toString();

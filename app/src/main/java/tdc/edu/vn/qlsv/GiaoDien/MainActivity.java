@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         startActivity(new Intent(MainActivity.this,ActivityPhongHoc.class));
                         break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this,TestJson.class));
+                        break;
                 }
             }
         });
@@ -74,13 +77,14 @@ public class MainActivity extends AppCompatActivity {
         data.add("Thêm Chi Tiết Sử Dụng");
         data.add("Thêm Phòng Học");
         int countMaThietBi=new DataLoaiThietBi(this).getCountLTB();
-        int countThietBi=new DataThietBi(this).getCountTB();
+        int countThietBi=new DataThietBi(this).getCount();
         int countPhongHoc=new DataPhongHoc(this).getCountPhongHoc();
         int countCTSD=new DataCTSD(this).getCountCTSD();
         dataUI.add(new Main(R.drawable.mathietbi,"Mã Thiết Bị",countMaThietBi,Color.parseColor("#b794f6")));
         dataUI.add(new Main(R.drawable.thietbi,"Thiết Bị",countThietBi, Color.parseColor("#c6f68d")));
         dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",countCTSD, Color.parseColor("#90ee02")));
         dataUI.add(new Main(R.drawable.phonghoc,"Phòng Học",countPhongHoc, Color.parseColor("#ffc77d")));
+        dataUI.add(new Main(R.drawable.digital,"Dữ liệu có sẵn (online)",4, Color.parseColor("#AA00FF")));
     }
 
     @Override

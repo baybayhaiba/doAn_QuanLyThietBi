@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\fcf2c63bf789f99e62639892a5effdfc\AndroidManifest.xml:17:1-22:12
@@ -33,25 +33,33 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\phamt\.gradle\cac
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\88e4482f09ea01fb463ce59cfe19cb2a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a2714b739f7407303086eea909382691\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\b4b34016a19340a8f56eec51bbd9dfc7\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
 	package
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:3:5-30
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:3:5-30
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:1-28:12
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:1-44:12
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:6:5-78
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:7:5-42:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\7bfff5aa38ceb0eae1e12ee0a75e46b5\AndroidManifest.xml:22:5-94
@@ -61,67 +69,77 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\phamt\.gra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\7bfff5aa38ceb0eae1e12ee0a75e46b5\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:13:64-80
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:11:9-47
 	android:icon
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:9:9-42
 	android:allowBackup
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:13:9-40
+activity#tdc.edu.vn.qlsv.GiaoDien.TestJson
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:14:9-64
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:14:19-52
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityLoaiThietBi
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:13:9-82
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:15:9-17:32
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:13:64-80
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:17:13-29
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:13:19-63
-activity#tdc.edu.vn.qlsv.GiaoDien.ActivityThietBi
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:14:9-78
-	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:14:60-76
-	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:14:19-59
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:16:13-57
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityChiTietSD
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:15:9-80
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:18:9-20:32
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:15:62-78
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:20:13-29
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:15:19-61
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:19:13-55
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityPhongHoc
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:16:9-79
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:21:9-23:32
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:16:61-77
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:23:13-29
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:16:19-60
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:22:13-54
+activity#tdc.edu.vn.qlsv.GiaoDien.ActivityThietBi
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:24:9-26:32
+	android:label
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:26:13-29
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:25:13-53
 activity#tdc.edu.vn.qlsv.GiaoDien.MainActivity
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:17:9-84
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:27:9-29:41
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:17:57-82
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:29:13-38
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:17:19-56
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:28:13-50
 activity#tdc.edu.vn.qlsv.GiaoDien.DangNhap
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:19:9-25:20
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:30:9-32:45
 	android:label
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:19:53-82
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:32:13-42
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:19:19-52
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:31:13-46
+activity#tdc.edu.vn.qlsv.GiaoDien.ActivitySplash
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:33:9-41:20
+	android:theme
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:35:13-63
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:34:13-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:36:13-40:29
 action#android.intent.action.MAIN
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:37:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:39:17-77
 	android:name
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml:39:27-74
 uses-sdk
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:5:5-7:41
@@ -180,13 +198,13 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\phamt\.gradle\
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a2714b739f7407303086eea909382691\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\b4b34016a19340a8f56eec51bbd9dfc7\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\b4b34016a19340a8f56eec51bbd9dfc7\AndroidManifest.xml:20:5-44
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Androidstudio\QuanLyThietBi\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107\app\src\main\AndroidManifest.xml

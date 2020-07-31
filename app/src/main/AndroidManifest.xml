@@ -2,20 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tdc.edu.vn.qlsv">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_app"
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiaoDien.ActivityLoaiThietBi" android:label=""/>
-        <activity android:name=".GiaoDien.ActivityThietBi" android:label=""/>
-        <activity android:name=".GiaoDien.ActivityChiTietSD" android:label=""/>
-        <activity android:name=".GiaoDien.ActivityPhongHoc" android:label=""/>
-        <activity android:name=".GiaoDien.MainActivity" android:label="Trang chủ"/>
-        <activity android:name=".GiaoDien.DangNhap" android:label="@string/title"/>
-        <activity android:name=".GiaoDien.ActivitySplash" android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".GiaoDien.TestJson"></activity>
+        <activity
+            android:name=".GiaoDien.ActivityLoaiThietBi"
+            android:label="" />
+        <activity
+            android:name=".GiaoDien.ActivityChiTietSD"
+            android:label="" />
+        <activity
+            android:name=".GiaoDien.ActivityPhongHoc"
+            android:label="" />
+        <activity
+            android:name=".GiaoDien.ActivityThietBi"
+            android:label="" />
+        <activity
+            android:name=".GiaoDien.MainActivity"
+            android:label="Trang chủ" />
+        <activity
+            android:name=".GiaoDien.DangNhap"
+            android:label="@string/title" />
+        <activity
+            android:name=".GiaoDien.ActivitySplash"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

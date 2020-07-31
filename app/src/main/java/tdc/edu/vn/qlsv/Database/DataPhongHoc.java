@@ -54,6 +54,7 @@ public class DataPhongHoc {
         ContentValues values=new ContentValues();
         values.put(Table_PhongHoc.KEY_MAPHONG,PhongHoc.getMaPhong());
         values.put(Table_PhongHoc.KEY_LOAIPHONG,PhongHoc.getLoaiPhong());
+        values.put(Table_PhongHoc.KEY_TANG,PhongHoc.getTang());
         return db.update(Table_PhongHoc.TABLE_NAME,values,Table_PhongHoc.KEY_MAPHONG+"=?",new String[]{PhongHoc.getMaPhong()});
     }
     public int getCountPhongHoc(){

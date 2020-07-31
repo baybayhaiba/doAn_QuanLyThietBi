@@ -48,7 +48,7 @@ public class CustomAdapterMain extends RecyclerView.Adapter<CustomAdapterMain.My
 
     @NonNull
     @Override
-    public CustomAdapterMain.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater=LayoutInflater.from(viewGroup.getContext());
         CardView cardView= (CardView) inflater.inflate(layoutID,viewGroup,false);
         return new MyViewHolder(cardView);
@@ -57,7 +57,7 @@ public class CustomAdapterMain extends RecyclerView.Adapter<CustomAdapterMain.My
 
 
     @Override
-    public void onBindViewHolder(@NonNull final CustomAdapterMain.MyViewHolder myViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
         final CardView cardView=myViewHolder.cardView;
         myViewHolder.info_anhMoTa.setImageResource(data.get(i).getImage());
         myViewHolder.info_kieuLoai.setText(data.get(i).getTitle());

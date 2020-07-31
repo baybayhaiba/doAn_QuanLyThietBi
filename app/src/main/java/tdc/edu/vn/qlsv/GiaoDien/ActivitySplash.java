@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class ActivitySplash extends AppCompatActivity {
 
     boolean running =true;
-    private  static int SPLASH_TIMER =4000;
+    private  static int SPLASH_TIMER =1000;
 
     Animation topAnim,bottomAim;
     TextView ThietBi;
@@ -29,10 +29,10 @@ public class ActivitySplash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_dashboard);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setController();
-        seEvent();
+        setEvent();
     }
     private void setController()
     {
@@ -44,10 +44,7 @@ public class ActivitySplash extends AppCompatActivity {
 
     }
 
-    private void seEvent(){
-
-
-
+    private void setEvent(){
 
         topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
@@ -58,10 +55,10 @@ public class ActivitySplash extends AppCompatActivity {
         ThietBi.setAnimation(bottomAim);
         imageView.setAnimation(topAnim);
 
-        if (imageView == null)throw  new AssertionError();
-        imageView.setBackgroundResource(R.drawable.doimau);
-        anim=(AnimationDrawable)imageView.getBackground();
-        anim.start();
+
+        //imageView.setBackgroundResource(R.drawable.doimau);
+        //anim=(AnimationDrawable)imageView.getBackground();
+        //anim.start();
 
 
 

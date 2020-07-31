@@ -62,6 +62,10 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
             myViewHolder.info_xuatXu.setImageResource(R.drawable.vietnam);
         else if (thietBi.getXuatXuTB().equals("Mỹ"))
             myViewHolder.info_xuatXu.setImageResource(R.drawable.usa);
+        else if(thietBi.getXuatXuTB().equals("Nhật"))
+            myViewHolder.info_xuatXu.setImageResource(R.drawable.japan);
+        else if(thietBi.getXuatXuTB().equals("Thái Lan"))
+            myViewHolder.info_xuatXu.setImageResource(R.drawable.thailan);
         else
             myViewHolder.info_xuatXu.setImageResource(R.drawable.korean);
 

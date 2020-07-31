@@ -14,11 +14,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.R;
+import tdc.edu.vn.qlsv.TableDatabase.Table_PhongHoc;
 
 
 public class ActivityPhongHoc extends AppCompatActivity {
@@ -27,6 +33,7 @@ Button bt_add,bt_remove,bt_update,bt_clear;
 EditText edit_maPhong,edit_loaiPhong,edit_tang;
 ListView listRoom;
 ArrayAdapter<PhongHoc>adapter;
+DataPhongHoc dataPhongHoc;
 int index=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,7 @@ int index=-1;
         setEvent();
     }
     public void setEvent(){
-        final DataPhongHoc dataPhongHoc=new DataPhongHoc(ActivityPhongHoc.this);
+        dataPhongHoc=new DataPhongHoc(ActivityPhongHoc.this);
         adapter=new ArrayAdapter<PhongHoc>(ActivityPhongHoc.this,android.R.layout.simple_list_item_1,dataPhongHoc.getAllPhongHoc());
         listRoom.setAdapter(adapter);
         bt_add.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +81,8 @@ int index=-1;
                 xoaTatCaNhap();
             }
         });
+
+
         listRoom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

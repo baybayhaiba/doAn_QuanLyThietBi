@@ -20,7 +20,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import tdc.edu.vn.qlsv.Database.DataCTSD;
-import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
@@ -31,7 +30,6 @@ public class ActivityChiTietSD extends AppCompatActivity {
     Spinner sp_maPhong, sp_MaThietBi;
     ArrayList<String> dataMaPhong;
     ArrayList<String> dataMaThietBi;
-    DataLoaiThietBi databaseLTB;
     //luu tru database va lay tat ca
     ArrayAdapter<ChiTietSuDung> adapter;
 
