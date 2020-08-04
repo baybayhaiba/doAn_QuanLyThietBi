@@ -8,9 +8,6 @@
     android:orientation="vertical"
     tools:context=".UI.ActivityLoaiThietBi">
 
-    <TextView
-        style="@style/title"
-        android:text="@string/phongHoc"/>
 
     <LinearLayout
         style="@style/linearBt"
@@ -89,7 +86,7 @@
 
     </LinearLayout>
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listRoom"
         style="@style/listView"
         android:layout_marginTop="5dp" />

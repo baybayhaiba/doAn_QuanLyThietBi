@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiaoDien.TestJson"></activity>
+        <activity android:name=".GiaoDien.ActivityData"></activity>
         <activity
             android:name=".GiaoDien.ActivityLoaiThietBi"
             android:label="" />

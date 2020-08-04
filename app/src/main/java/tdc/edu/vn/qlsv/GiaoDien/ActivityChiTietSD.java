@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,10 +44,17 @@ public class ActivityChiTietSD extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet_sd);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar();
         setControl();
         setEvent();
+    }
+
+    private void ActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setCustomView(R.layout.action_bar_layout);
+        ((TextView) actionBar.getCustomView().findViewById(R.id.actionBarTitle)).setText("Chi tiết sử dụng");
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void setEvent() {
@@ -58,23 +66,22 @@ public class ActivityChiTietSD extends AppCompatActivity {
         //get lay string chuoi
         dataMaThietBi = new ArrayList<>();
         dataMaPhong = new ArrayList<>();
-        while (i < dbThietBi.getAllThietBi().size() && j < dbPhongHoc.getAllPhongHoc().size()) {
-            while (i < dbThietBi.getAllThietBi().size()) {
-                dataMaThietBi.add(dbThietBi.getAllThietBi().get(i).getMaTB());
-                i++;
-            }
-            while (j < dbPhongHoc.getAllPhongHoc().size()) {
-                dataMaPhong.add(dbPhongHoc.getAllPhongHoc().get(j).getMaPhong());
-                j++;
-            }
+
+        while (i < dbThietBi.getAllThietBi().size()) {
+            dataMaThietBi.add(dbThietBi.getAllThietBi().get(i).getMaTB());
+            i++;
         }
+        while (j < dbPhongHoc.getAllPhongHoc().size()) {
+            dataMaPhong.add(dbPhongHoc.getAllPhongHoc().get(j).getMaPhong());
+            j++;
+        }
+
 
         sp_MaThietBi.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataMaThietBi));
         sp_maPhong.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataMaPhong));
-        final DataCTSD dataCTSD=new DataCTSD(this);
+        final DataCTSD dataCTSD = new DataCTSD(this);
         adapter = new ArrayAdapter<ChiTietSuDung>(this, android.R.layout.simple_list_item_1, dataCTSD.getAllCTSD());
         listCTSD.setAdapter(adapter);
-
 
 
         bt_add.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +91,7 @@ public class ActivityChiTietSD extends AppCompatActivity {
                 adapter.clear();
                 adapter.addAll(dataCTSD.getAllCTSD());
                 adapter.notifyDataSetChanged();
-                Toast.makeText(ActivityChiTietSD.this, ""+getCTSD().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityChiTietSD.this, "" + getCTSD().toString(), Toast.LENGTH_SHORT).show();
             }
         });
         bt_remove.setOnClickListener(new View.OnClickListener() {
@@ -136,13 +143,13 @@ public class ActivityChiTietSD extends AppCompatActivity {
         String MaThietBi = sp_MaThietBi.getSelectedItem().toString();
         String maPhong = sp_maPhong.getSelectedItem().toString();
         int MaLoai = Integer.parseInt(edit_soLuong.getText().toString());
-        ChiTietSuDung listdevice = new ChiTietSuDung(maPhong,MaThietBi,ngaySuDung,MaLoai);
+        ChiTietSuDung listdevice = new ChiTietSuDung(maPhong, MaThietBi, ngaySuDung, MaLoai);
         return listdevice;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        startActivity(new Intent(ActivityChiTietSD.this,MainActivity.class));
+        startActivity(new Intent(ActivityChiTietSD.this, MainActivity.class));
         return super.onOptionsItemSelected(item);
     }
 }

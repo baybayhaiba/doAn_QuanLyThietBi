@@ -10,17 +10,22 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.example.quanlythietbi.Class.ThietBi;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterTB;
 import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
@@ -39,7 +44,7 @@ public class ActivityThietBi extends AppCompatActivity{
     ArrayList<ThietBi> dataThietBi;
 
     RecyclerView recyclerViewThietBi;
-    EditText editTenTB,editMaTB;
+    EditText editTenTB,editMaTB,editIDThietBi;
 
     Button bt_them,bt_xoa,bt_sua,bt_clear;
     //tao database de lay gia tri spinner maLoai
@@ -53,9 +58,15 @@ public class ActivityThietBi extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thietbi);
+        ActionBar();
         setControl();
         setEvent();
+    }
+    private void ActionBar(){
         ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setCustomView(R.layout.action_bar_layout);
+        ((TextView)actionBar.getCustomView().findViewById(R.id.actionBarTitle)).setText("Thiết Bị");
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
@@ -81,12 +92,15 @@ public class ActivityThietBi extends AppCompatActivity{
         bt_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ThietBi thietBi=getThietBi();
-                databaseThietBi.themThietbi(getThietBi());
-                String dinhDangMaLoai= thietBi.getMaLoaiTB()+String.format("%02d",
-                        databaseThietBi.getCountByType(thietBi.getMaLoaiTB()));
-                thietBi.setMaTB(dinhDangMaLoai);
+                ThietBi thietBi= getThemThietBi();
+                databaseThietBi.themThietbi(thietBi);
                 dataThietBi.add(thietBi);
+                Collections.sort(dataThietBi, new Comparator<ThietBi>() {
+                    @Override
+                    public int compare(ThietBi thietBi, ThietBi t1) {
+                       return t1.getId()-thietBi.getId();
+                    }
+                });
                 adapterTB.notifyDataSetChanged();
             }
         });
@@ -94,7 +108,7 @@ public class ActivityThietBi extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if(index!=-1) {
-                    databaseThietBi.xoaThietBi(getThietBi());
+                    databaseThietBi.xoaThietBi(getSuaThietBi());
                     dataThietBi.remove(index);
                     adapterTB.notifyItemRemoved(index);
                     index=-1;
@@ -109,14 +123,16 @@ public class ActivityThietBi extends AppCompatActivity{
                 sp_maLoai.setSelection(0);
                 sp_xuatXu.setSelection(0);
                 index=-1;
+                Toast.makeText(ActivityThietBi.this, ""+databaseThietBi.MaxId(), Toast.LENGTH_SHORT).show();
             }
         });
         bt_sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(index!=-1) {
-                    databaseThietBi.suaThietBi(getThietBi());
-                    dataThietBi.set(index,getThietBi());
+                    ThietBi thietBi= getSuaThietBi();
+                    databaseThietBi.suaThietBi(thietBi);
+                    dataThietBi.set(index, thietBi);
                     adapterTB.notifyItemChanged(index);
                 }else
                     Toast.makeText(ActivityThietBi.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
@@ -127,12 +143,15 @@ public class ActivityThietBi extends AppCompatActivity{
             @Override
             public void onClick(int position) {
                 index=position;
-                editMaTB.setText(databaseThietBi.getAllThietBi().get(index).getMaTB());
-                editTenTB.setText(databaseThietBi.getAllThietBi().get(index).getTenTB());
-                int positionXuatXu=adapterXuatXu.getPosition(databaseThietBi.getAllThietBi().get(index).getXuatXuTB());
-                int positionLoaiTB=adapterLoaiTB.getPosition(databaseThietBi.getAllThietBi().get(index).getMaLoaiTB());
+                editIDThietBi.setText(String.valueOf(dataThietBi.get(position).getId()));
+                editMaTB.setText(dataThietBi.get(position).getMaTB());
+                editTenTB.setText(dataThietBi.get(position).getTenTB());
+                int positionXuatXu=adapterXuatXu.getPosition(dataThietBi.get(position).getXuatXuTB());
+                int positionLoaiTB=adapterLoaiTB.getPosition(dataThietBi.get(position).getMaLoaiTB());
                 sp_xuatXu.setSelection(positionXuatXu);
                 sp_maLoai.setSelection(positionLoaiTB);
+                Toast.makeText(ActivityThietBi.this, ""+dataThietBi.get(position).getId()+"|"+
+                        editMaTB.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -140,13 +159,14 @@ public class ActivityThietBi extends AppCompatActivity{
     private void khoiTao() {
         dataXuatXu.add("Việt Nam");
         dataXuatXu.add("Mỹ");
-        dataXuatXu.add("Hàn");
+        dataXuatXu.add("Hàn Quốc");
         dataXuatXu.add("Thái Lan");
         dataXuatXu.add("Nhật");
         databaseLTB=new DataLoaiThietBi(this);
         for(LoaiThietBi loaiTB:databaseLTB.getAllLoaiTB())
             dataMaLoai.add(loaiTB.getMaLoai());
     }
+
 
     private void setControl() {
         sp_xuatXu=findViewById(R.id.sp_xuatXu);
@@ -155,6 +175,7 @@ public class ActivityThietBi extends AppCompatActivity{
         dataMaLoai=new ArrayList<>();
         dataThietBi=new ArrayList<>();
         editMaTB=findViewById(R.id.edit_maTB);
+        editIDThietBi=findViewById(R.id.edit_idTB);
         editTenTB=findViewById(R.id.edit_tenTB);
         sp_maLoai=findViewById(R.id.sp_maLoai);
 
@@ -166,20 +187,42 @@ public class ActivityThietBi extends AppCompatActivity{
         recyclerViewThietBi=findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
     }
-    private ThietBi getThietBi(){
+    private ThietBi getThemThietBi(){
+        int id=databaseThietBi.MaxId()+1;
         String tenTB=editTenTB.getText().toString();
         String maLoai=sp_maLoai.getSelectedItem().toString();
         String xuatXu=sp_xuatXu.getSelectedItem().toString();
-        String maTB=editMaTB.getText().toString();
-        ThietBi device=new ThietBi(0,maTB,tenTB,xuatXu,maLoai);
-        return device;
+        String maTB= databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai)+1);
+        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai);
+    }
+    private ThietBi getSuaThietBi(){
+        int id=Integer.parseInt(editIDThietBi.getText().toString());
+        String tenTB=editTenTB.getText().toString();
+        String maLoai=sp_maLoai.getSelectedItem().toString();
+        String xuatXu=sp_xuatXu.getSelectedItem().toString();
+        String maTB="";
+        if(!dataThietBi.get(index).getMaLoaiTB().equals(sp_maLoai.getSelectedItem().toString()))
+            maTB = databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai) + 1);
+        else
+            maTB = editMaTB.getText().toString();
+        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        startActivity(new Intent(ActivityThietBi.this,MainActivity.class));
+        switch (item.getItemId()){
+            case android.R.id.home:
+                startActivity(new Intent(ActivityThietBi.this,MainActivity.class));
+                break;
+            case R.id.mnExit:
+                Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
-
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }

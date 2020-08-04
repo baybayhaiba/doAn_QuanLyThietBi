@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.TestJson" />
+        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityData" />
         <activity
             android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityLoaiThietBi"
             android:label="" />

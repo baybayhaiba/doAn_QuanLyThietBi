@@ -7,10 +7,10 @@
     android:orientation="vertical"
     tools:context=".UI.ActivityThietBi">
 
-    <TextView
-        style="@style/title"
-        android:text="@string/thietBi" />
 
+    <EditText
+        android:id="@+id/edit_idTB"
+        style="@style/editText1" />
     <EditText
         android:id="@+id/edit_maTB"
         style="@style/editText1" />

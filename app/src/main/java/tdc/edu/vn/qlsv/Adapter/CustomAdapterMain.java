@@ -1,9 +1,6 @@
 package tdc.edu.vn.qlsv.Adapter;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +12,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import tdc.edu.vn.qlsv.Model.Main;
-import tdc.edu.vn.qlsv.Model.ThietBi;
 import tdc.edu.vn.qlsv.R;
 
 public class CustomAdapterMain extends RecyclerView.Adapter<CustomAdapterMain.MyViewHolder>{

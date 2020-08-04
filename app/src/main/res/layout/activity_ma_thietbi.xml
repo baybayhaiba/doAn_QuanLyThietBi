@@ -8,9 +8,7 @@
     android:orientation="vertical"
     tools:context="tdc.edu.vn.qltb.UI.ActivityLoaiThietBi">
 
-    <TextView
-        style="@style/title"
-        android:text="@string/maThietBi"/>
+
 
     <LinearLayout
         style="@style/linearBt"

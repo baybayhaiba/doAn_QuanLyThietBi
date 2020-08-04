@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 //import com.example.quanlythietbi.LoaiThietBi.dataLoaiThietBi;
 //import com.example.quanlythietbi.LoaiThietBi.LoaiThietBi;
@@ -34,12 +35,17 @@ public class ActivityLoaiThietBi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ma_thietbi);
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar();
         setControl();
         setEvent();
     }
-
+    private void ActionBar(){
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setCustomView(R.layout.action_bar_layout);
+        ((TextView)actionBar.getCustomView().findViewById(R.id.actionBarTitle)).setText("Loại Thiết Bị");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
     private void setEvent() {
         final DataLoaiThietBi dataChiTiet=new DataLoaiThietBi(ActivityLoaiThietBi.this);
