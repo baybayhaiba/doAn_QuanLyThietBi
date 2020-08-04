@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.CardView style="@style/cardView"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardView"
     android:layout_margin="5dp"
     app:cardCornerRadius="4dp"
-    app:cardElevation="4dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardElevation="4dp">
+
     <LinearLayout
-        android:background="@android:color/holo_blue_light"
         style="@style/linearDefault"
+        android:background="@android:color/holo_blue_light"
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/info_imageThietBi"
             style="@style/imageCardView"
-            android:src="@drawable/vietnam"
-            android:scaleType="center"
-            android:layout_marginRight="20dp"
-            android:id="@+id/info_xuatXu" />
 
-        <LinearLayout style="@style/linearDefault"
+            android:background="@android:color/white"
+            android:scaleType="fitXY"
+            android:src="@drawable/choosepicture" />
+
+        <LinearLayout
+            style="@style/linearDefault"
+            android:layout_marginLeft="5dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/info_loaiTB"
-                android:text="TEST"
-                style="@style/textViewCardView" />
+                style="@style/textViewCardView"
+                android:text="TEST" />
 
-            <TextView
-                android:id="@+id/info_tenTB"
-                android:text="TEST"
-                style="@style/textViewCardView" />
+            <LinearLayout
+                style="@style/linearCardView"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/info_tenTB"
+                    android:layout_weight="9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif"
+                    android:text="TEST" />
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/vietnam"
+                    android:id="@+id/info_xuatXuThietBi"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/info_maTB"
-                android:text="TEST"
-                style="@style/textViewCardView" />
+                style="@style/textViewCardView"
+                android:text="TEST" />
         </LinearLayout>
+
 
     </LinearLayout>
 

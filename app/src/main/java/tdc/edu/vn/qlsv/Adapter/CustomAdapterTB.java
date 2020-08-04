@@ -38,7 +38,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
 
         public MyViewHolder(@NonNull CardView v) {
             super(v);
-            info_xuatXu=itemView.findViewById(R.id.info_xuatXu);
+            info_xuatXu=itemView.findViewById(R.id.info_xuatXuThietBi);
             info_maTB=itemView.findViewById(R.id.info_maTB);
             info_tenTB=itemView.findViewById(R.id.info_tenTB);
             info_maLoai=itemView.findViewById(R.id.info_loaiTB);

@@ -70,16 +70,20 @@
     </style>
 
     <style name="imageCardView">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">120dp</item>
     </style>
 
     <style name="textViewCardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="fontFamily">sans-serif</item>
         <item name="android:layout_weight">1</item>
+        <item name="fontFamily">sans-serif</item>
     </style>
 
+    <style name="linearCardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
