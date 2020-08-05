@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView list;
     CustomAdapterMain adapter;
     @Override
+    //onc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
