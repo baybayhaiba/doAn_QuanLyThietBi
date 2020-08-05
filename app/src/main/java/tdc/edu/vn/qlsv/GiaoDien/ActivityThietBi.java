@@ -18,6 +18,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -114,7 +115,7 @@ public class ActivityThietBi extends AppCompatActivity{
                 Collections.sort(dataThietBi, new Comparator<ThietBi>() {
                     @Override
                     public int compare(ThietBi thietBi, ThietBi t1) {
-                       return t1.getId()-thietBi.getId();
+                        return t1.getId()-thietBi.getId();
                     }
                 });
                 adapterTB.notifyDataSetChanged();
@@ -240,8 +241,9 @@ public class ActivityThietBi extends AppCompatActivity{
     private byte[] getByteBitmap(){
         try {
             Bitmap bitmap=((BitmapDrawable)imageViewURL.getDrawable()).getBitmap();
+            Bitmap resizeBitmap=Bitmap.createScaledBitmap(bitmap,120,120,false);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            resizeBitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
             return bos.toByteArray();
         }catch (Exception e){
             Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
@@ -276,7 +278,24 @@ public class ActivityThietBi extends AppCompatActivity{
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_search,menu);
+        MenuItem menuItem=menu.findItem(R.id.mnSearch);
+        SearchView searchView=(SearchView) menuItem.getActionView();
+
+        searchView.setQueryHint("Search Here");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapterTB.getFilter().filter(s);
+                return false;
+            }
+
+        });
         return super.onCreateOptionsMenu(menu);
     }
     private void PickImageFromGallery() {

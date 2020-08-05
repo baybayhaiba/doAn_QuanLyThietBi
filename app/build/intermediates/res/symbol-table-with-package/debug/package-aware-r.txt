@@ -693,6 +693,7 @@ drawable japan
 drawable korean
 drawable logo
 drawable mathietbi
+drawable msearch
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -838,6 +839,7 @@ id main_soLuong
 id message
 id middle
 id mnExit
+id mnSearch
 id multiply
 id never
 id none
@@ -967,6 +969,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu menu_main
+menu menu_search
 mipmap ic_launcher
 mipmap ic_launcher_round
 string abc_action_bar_home_description

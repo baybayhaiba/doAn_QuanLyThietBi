@@ -10,19 +10,58 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import tdc.edu.vn.qlsv.Model.ThietBi;
 import tdc.edu.vn.qlsv.R;
 
 
-public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyViewHolder> {
+public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyViewHolder> implements Filterable {
     private int layoutID;
     private ArrayList<ThietBi> data;
+    private ArrayList<ThietBi> dataAll;
     private Listener listener;
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+    Filter filter=new Filter() {
+        //run on background thread
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<ThietBi> filteredList=new ArrayList<>();
+
+            if(charSequence.toString().isEmpty()){
+                filteredList.addAll(dataAll);
+            }else{
+                for(ThietBi tb:dataAll){
+                    if(tb.getTenTB().toLowerCase().contains(charSequence.toString().toLowerCase())){
+                        filteredList.add(tb);
+                    }
+                }
+            }
+            FilterResults filterResults=new FilterResults();
+            filterResults.values=filteredList;
+            return filterResults;
+        }
+        //run on ui thread
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            data.clear();
+            data.addAll((Collection<? extends ThietBi>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+
     public static interface Listener{
         public void onClick(int position);
     }
@@ -30,6 +69,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
     public CustomAdapterTB(int layoutID, ArrayList<ThietBi> data) {
         this.layoutID = layoutID;
         this.data = data;
+        this.dataAll=new ArrayList<>(data);
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -83,14 +123,10 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
         {
             Bitmap bitmapToImage = BitmapFactory.decodeByteArray
                     (thietBi.getImageTB(), 0, thietBi.getImageTB().length);
-            myViewHolder.infoImageTB.setImageBitmap(bitmapToImage);
+            myViewHolder.infoImageTB.setImageBitmap(Bitmap.
+                    createScaledBitmap(bitmapToImage,120,120,false));
         }
-        myViewHolder.infoImageTB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("Test click image", "onClick: dasdasdasdasdas");
-            }
-        });
+
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
