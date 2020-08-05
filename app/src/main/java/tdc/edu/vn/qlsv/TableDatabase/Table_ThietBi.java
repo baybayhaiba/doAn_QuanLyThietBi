@@ -10,4 +10,5 @@ public class Table_ThietBi {
     public static final String KEY_TENTB="tenThietBi";
     public static final String KEY_XUATXU="xuatXu";
     public static final String KEY_MALOAI="maLoai";
+    public static final String KEY_IMAGE="anhThietBi";
 }

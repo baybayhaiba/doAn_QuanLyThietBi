@@ -34,7 +34,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 +Table_ThietBi.KEY_MATB + " TEXT,"
                 +Table_ThietBi.KEY_TENTB + " TEXT,"
                 +Table_ThietBi.KEY_XUATXU + " TEXT,"
-                +Table_ThietBi.KEY_MALOAI + " TEXT);";
+                +Table_ThietBi.KEY_MALOAI + " TEXT,"
+                + Table_ThietBi.KEY_IMAGE+" BLOB);";
         //tao bang chi tiet su dung
         String sqlChiTietSD="CREATE TABLE "+ Table_ChiTietSD.TABLE_NAME+" ( "
                 +Table_ChiTietSD.KEY_ID+" INTEGER PRIMARY KEY ,"

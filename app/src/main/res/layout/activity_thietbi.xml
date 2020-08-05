@@ -60,7 +60,22 @@
             style="@style/spinner"
             android:layout_marginLeft="30sp" />
     </LinearLayout>
+    <LinearLayout
+        style="@style/linearBt"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
 
+        <TextView
+            style="@style/textView"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="Chọn ảnh" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:id="@+id/imageURI"
+            android:layout_height="50dp"
+            android:src="@drawable/choosepicture"/>
+    </LinearLayout>
 
     <LinearLayout
         style="@style/linearBt"

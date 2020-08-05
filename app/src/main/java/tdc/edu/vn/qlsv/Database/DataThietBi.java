@@ -30,7 +30,7 @@ public class DataThietBi {
         values.put(Table_ThietBi.KEY_TENTB,thietBi.getTenTB());
         values.put(Table_ThietBi.KEY_XUATXU,thietBi.getXuatXuTB());
         values.put(Table_ThietBi.KEY_MALOAI,thietBi.getMaLoaiTB());
-
+        values.put(Table_ThietBi.KEY_IMAGE,thietBi.getImageTB());
         db.insert(Table_ThietBi.TABLE_NAME,null,values);
     }
     public ArrayList<ThietBi> getAllThietBi(){
@@ -45,7 +45,8 @@ public class DataThietBi {
                 String tenThietBi=cursor.getString(2);
                 String xuatXu=cursor.getString(3);
                 String maLoai=cursor.getString(4);
-                listThietBi.add(new ThietBi(id,maThietBi,tenThietBi,xuatXu,maLoai));
+                byte[] image=cursor.getBlob(5);
+                listThietBi.add(new ThietBi(id,maThietBi,tenThietBi,xuatXu,maLoai,image));
             }while (cursor.moveToNext());
         }
         return listThietBi;
@@ -128,7 +129,7 @@ public class DataThietBi {
         values.put(Table_ThietBi.KEY_TENTB,thietBi.getTenTB());
         values.put(Table_ThietBi.KEY_XUATXU,thietBi.getXuatXuTB());
         values.put(Table_ThietBi.KEY_MALOAI,thietBi.getMaLoaiTB());
-
+        values.put(Table_ThietBi.KEY_IMAGE,thietBi.getImageTB());
         return db.update(Table_ThietBi.TABLE_NAME,values,Table_ThietBi.KEY_ID+" =?",new
                 String[]{String.valueOf(thietBi.getId())});
     }

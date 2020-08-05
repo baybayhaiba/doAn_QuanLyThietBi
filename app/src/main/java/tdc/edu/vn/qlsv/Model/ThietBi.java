@@ -6,6 +6,15 @@ public class ThietBi {
     private String tenTB;
     private String xuatXuTB;
     private String maLoaiTB;
+    private byte[] imageTB;
+
+    public byte[] getImageTB() {
+        return imageTB;
+    }
+
+    public void setImageTB(byte[] imageTB) {
+        this.imageTB = imageTB;
+    }
 
     public int getId() {
         return id;
@@ -15,12 +24,13 @@ public class ThietBi {
         this.id = id;
     }
 
-    public ThietBi(int id, String maTB, String tenTB, String xuatXuTB, String maLoaiTB) {
+    public ThietBi(int id, String maTB, String tenTB, String xuatXuTB, String maLoaiTB,byte[] imageTB) {
         this.id = id;
         this.maTB = maTB;
         this.tenTB = tenTB;
         this.xuatXuTB = xuatXuTB;
         this.maLoaiTB = maLoaiTB;
+        this.imageTB=imageTB;
     }
 
 

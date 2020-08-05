@@ -8,6 +8,7 @@ MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\cac
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\fcf2c63bf789f99e62639892a5effdfc\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\93a69e3c56360785ebb99c66bc4f6e77\AndroidManifest.xml:17:1-22:12
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\ba129367209761eec66b53fc4165b3d6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\63361daad0862fc0156b0a62bd93f44f\AndroidManifest.xml:17:1-22:12
@@ -50,6 +51,10 @@ INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidMani
 		INJECTED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:4:5-79
+	android:name
+		ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:4:22-77
 uses-permission#android.permission.INTERNET
 ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:5:5-66
 	android:name
@@ -62,6 +67,8 @@ application
 ADDED from C:\Androidstudio\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:7:5-42:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\7bfff5aa38ceb0eae1e12ee0a75e46b5\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\7bfff5aa38ceb0eae1e12ee0a75e46b5\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\ee477cf32f4d276b387a02582023e08e\AndroidManifest.xml:22:5-23:19
@@ -148,6 +155,8 @@ MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\phamt\.gradle\
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\fcf2c63bf789f99e62639892a5effdfc\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\93a69e3c56360785ebb99c66bc4f6e77\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\93a69e3c56360785ebb99c66bc4f6e77\AndroidManifest.xml:20:5-44
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\ba129367209761eec66b53fc4165b3d6\AndroidManifest.xml:20:5-44

@@ -4,8 +4,16 @@ package tdc.edu.vn.qlsv.GiaoDien;
 //import androidx.appcompat.app.ActionBar;
 //import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,10 +31,15 @@ import android.widget.Toast;
 
 //import com.example.quanlythietbi.Class.ThietBi;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterTB;
 import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
@@ -45,14 +58,17 @@ public class ActivityThietBi extends AppCompatActivity{
 
     RecyclerView recyclerViewThietBi;
     EditText editTenTB,editMaTB,editIDThietBi;
-
     Button bt_them,bt_xoa,bt_sua,bt_clear;
     //tao database de lay gia tri spinner maLoai
     DataLoaiThietBi databaseLTB;
     //luu tru database va lay tat ca
     DataThietBi databaseThietBi;
+    CircleImageView imageViewURL;
     CustomAdapterTB adapterTB;
     int index=-1;
+
+    private static final int IMAGE_PICK_CODE=1000;
+    private static final int PERMISSION_CODE=1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +154,25 @@ public class ActivityThietBi extends AppCompatActivity{
                     Toast.makeText(ActivityThietBi.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
             }
         });
-//
+
+        imageViewURL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+                    if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            == PackageManager.PERMISSION_DENIED){
+                        String[] permissions={Manifest.permission.READ_EXTERNAL_STORAGE};
+                        requestPermissions(permissions,PERMISSION_CODE);
+                    }
+                    else{
+                        PickImageFromGallery();
+                    }
+                }
+                else
+                    PickImageFromGallery();
+            }
+        });
+
         adapterTB.setListener(new CustomAdapterTB.Listener() {
             @Override
             public void onClick(int position) {
@@ -150,6 +184,13 @@ public class ActivityThietBi extends AppCompatActivity{
                 int positionLoaiTB=adapterLoaiTB.getPosition(dataThietBi.get(position).getMaLoaiTB());
                 sp_xuatXu.setSelection(positionXuatXu);
                 sp_maLoai.setSelection(positionLoaiTB);
+                if(dataThietBi.get(position).getImageTB()!=null) {
+                    Bitmap bitmapToImage = BitmapFactory.decodeByteArray
+                            (dataThietBi.get(position).getImageTB(), 0, dataThietBi.get(position).getImageTB().length);
+                    imageViewURL.setImageBitmap(bitmapToImage);
+                }
+                else
+                    imageViewURL.setImageResource(R.drawable.choosepicture);
                 Toast.makeText(ActivityThietBi.this, ""+dataThietBi.get(position).getId()+"|"+
                         editMaTB.getText().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -183,7 +224,7 @@ public class ActivityThietBi extends AppCompatActivity{
         bt_xoa=findViewById(R.id.bt_remove);
         bt_sua=findViewById(R.id.bt_update);
         bt_clear=findViewById(R.id.bt_clear);
-
+        imageViewURL=findViewById(R.id.imageURI);
         recyclerViewThietBi=findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -193,7 +234,19 @@ public class ActivityThietBi extends AppCompatActivity{
         String maLoai=sp_maLoai.getSelectedItem().toString();
         String xuatXu=sp_xuatXu.getSelectedItem().toString();
         String maTB= databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai)+1);
-        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai);
+        byte[] bytes=getByteBitmap();
+        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai,bytes);
+    }
+    private byte[] getByteBitmap(){
+        try {
+            Bitmap bitmap=((BitmapDrawable)imageViewURL.getDrawable()).getBitmap();
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            return bos.toByteArray();
+        }catch (Exception e){
+            Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
+        }
+        return null;
     }
     private ThietBi getSuaThietBi(){
         int id=Integer.parseInt(editIDThietBi.getText().toString());
@@ -205,7 +258,8 @@ public class ActivityThietBi extends AppCompatActivity{
             maTB = databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai) + 1);
         else
             maTB = editMaTB.getText().toString();
-        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai);
+        byte[] bytes=getByteBitmap();
+        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai,bytes);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -224,5 +278,30 @@ public class ActivityThietBi extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+    private void PickImageFromGallery() {
+        Intent intent=new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,IMAGE_PICK_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case PERMISSION_CODE:
+                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+                    PickImageFromGallery();
+                else
+                    Toast.makeText(this, "Permisstion deny", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            imageViewURL.setImageURI(data.getData());
+        }
     }
 }

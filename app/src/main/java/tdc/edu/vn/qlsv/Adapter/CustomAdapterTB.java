@@ -1,9 +1,12 @@
 package tdc.edu.vn.qlsv.Adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +33,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
+        private ImageView infoImageTB;
         private ImageView info_xuatXu;
         private TextView info_maTB;
         private TextView info_tenTB;
@@ -38,6 +42,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
 
         public MyViewHolder(@NonNull CardView v) {
             super(v);
+            infoImageTB=itemView.findViewById(R.id.info_imageThietBi);
             info_xuatXu=itemView.findViewById(R.id.info_xuatXuThietBi);
             info_maTB=itemView.findViewById(R.id.info_maTB);
             info_tenTB=itemView.findViewById(R.id.info_tenTB);
@@ -72,7 +77,20 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
         myViewHolder.info_maLoai.setText("Mã loại:"+thietBi.getMaLoaiTB());
         myViewHolder.info_tenTB.setText("Tên Thiết Bị:"+thietBi.getTenTB());
         myViewHolder.info_maTB.setText("Mã thiết bị:"+thietBi.getMaTB());
-
+        if(thietBi.getImageTB()==null)
+            myViewHolder.infoImageTB.setImageResource(R.drawable.choosepicture);
+        else
+        {
+            Bitmap bitmapToImage = BitmapFactory.decodeByteArray
+                    (thietBi.getImageTB(), 0, thietBi.getImageTB().length);
+            myViewHolder.infoImageTB.setImageBitmap(bitmapToImage);
+        }
+        myViewHolder.infoImageTB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Test click image", "onClick: dasdasdasdasdas");
+            }
+        });
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -201,7 +201,7 @@ public class ActivityData extends AppCompatActivity{
                         String xuatXu = hashMap.get(Table_ThietBi.KEY_XUATXU);
                         String maLoai = hashMap.get(Table_ThietBi.KEY_MALOAI);
                         String maTB= databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai)+1);
-                        thietBi.add(new ThietBi(id, maTB, tenThietBi, xuatXu, maLoai));
+                        thietBi.add(new ThietBi(id, maTB, tenThietBi, xuatXu, maLoai,null));
                         databaseThietBi.themThietbi(thietBi.get(i));
                     }
                     thongBao("Thiết Bị").create().show();
