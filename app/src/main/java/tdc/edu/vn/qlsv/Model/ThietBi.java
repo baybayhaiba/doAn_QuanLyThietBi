@@ -1,5 +1,7 @@
 package tdc.edu.vn.qlsv.Model;
 
+import java.util.Arrays;
+
 public class ThietBi {
     private  int id;
     private String maTB;
@@ -69,11 +71,13 @@ public class ThietBi {
 
     @Override
     public String toString() {
-        return "Device{" +
-                "maTB='" + maTB + '\'' +
+        return "ThietBi{" +
+                "id=" + id +
+                ", maTB='" + maTB + '\'' +
                 ", tenTB='" + tenTB + '\'' +
                 ", xuatXuTB='" + xuatXuTB + '\'' +
                 ", maLoaiTB='" + maLoaiTB + '\'' +
+                ", imageTB=" + Arrays.toString(imageTB) +
                 '}';
     }
 }

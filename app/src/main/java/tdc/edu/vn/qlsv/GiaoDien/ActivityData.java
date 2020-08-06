@@ -5,6 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -16,13 +20,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -47,6 +61,7 @@ public class ActivityData extends AppCompatActivity{
     Button bt_maTB,bt_TB,bt_CTSD,bt_PhongHoc;
     GetJson getJson;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +89,7 @@ public class ActivityData extends AppCompatActivity{
         bt_CTSD=findViewById(R.id.jsonCTSD);
         bt_PhongHoc=findViewById(R.id.jsonPhongHoc);
         listView=findViewById(R.id.lvJson);
+
     }
     private  void setEvent(){
         bt_maTB.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +124,6 @@ public class ActivityData extends AppCompatActivity{
                         GetJson().execute("https://raw.githubusercontent.com/baybayhaiba/testJson/master/index4.html");
             }
         });
-
     }
 
     private boolean checkInternetConnection() {
@@ -141,6 +156,7 @@ public class ActivityData extends AppCompatActivity{
 
         ProgressDialog pDialog;
         ArrayList<HashMap<String, String>> getDataJson;
+        ImageView imgData=findViewById(R.id.dataImg);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -182,9 +198,10 @@ public class ActivityData extends AppCompatActivity{
                 DataLoaiThietBi databaseLoaiTB=new DataLoaiThietBi(ActivityData.this);
                 for(int i=0;i<getDataJson.size();i++){
                     HashMap<String,String> hashMap=getDataJson.get(i);
+                    int id=Integer.parseInt(hashMap.get(Table_LoaiThietBi.KEY_ID));
                     String maLoai=hashMap.get(Table_LoaiThietBi.KEY_MALOAI);
                     String tenLoai=hashMap.get(Table_LoaiThietBi.KEY_TENLOAI);
-                    loaiTB.add(new LoaiThietBi(maLoai,tenLoai));
+                    loaiTB.add(new LoaiThietBi(id,maLoai,tenLoai));
                     databaseLoaiTB.themLoaiTB(loaiTB.get(i));
                 }
                 thongBao("Loại Thiết Bị").create().show();
@@ -201,7 +218,10 @@ public class ActivityData extends AppCompatActivity{
                         String xuatXu = hashMap.get(Table_ThietBi.KEY_XUATXU);
                         String maLoai = hashMap.get(Table_ThietBi.KEY_MALOAI);
                         String maTB= databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai)+1);
-                        thietBi.add(new ThietBi(id, maTB, tenThietBi, xuatXu, maLoai,null));
+                        String url=hashMap.get(Table_ThietBi.KEY_IMAGE);
+                        Picasso.get().load(url).into(imgData);
+                        byte[] img=getByteBitmap(imgData);
+                        thietBi.add(new ThietBi(id, maTB, tenThietBi, xuatXu, maLoai,img));
                         databaseThietBi.themThietbi(thietBi.get(i));
                     }
                     thongBao("Thiết Bị").create().show();
@@ -218,7 +238,7 @@ public class ActivityData extends AppCompatActivity{
                     String maPhong=hashMap.get(Table_PhongHoc.KEY_MAPHONG);
                     String tenPhong=hashMap.get(Table_PhongHoc.KEY_LOAIPHONG);
                     int tangPhongHoc=Integer.parseInt(hashMap.get(Table_PhongHoc.KEY_TANG));
-                    phongHoc.add(new PhongHoc(maPhong,tenPhong,tangPhongHoc));
+                    phongHoc.add(new PhongHoc(id,maPhong,tenPhong,tangPhongHoc));
                     databasePhongHoc.themPhongHoc(phongHoc.get(i));
                 }
                 thongBao("Phòng Học").create().show();
@@ -235,7 +255,7 @@ public class ActivityData extends AppCompatActivity{
                     String maTB=hashMap.get(Table_ChiTietSD.KEY_MATB);
                     String ngaySD=hashMap.get(Table_ChiTietSD.KEY_NGAYSD);
                     int soLuong=Integer.parseInt(hashMap.get(Table_ChiTietSD.KEY_SOLUONG));
-                    CTSD.add(new ChiTietSuDung(maPhong,maTB,ngaySD,soLuong));
+                    CTSD.add(new ChiTietSuDung(id,maPhong,maTB,ngaySD,soLuong));
                     databaseCTSD.themCTSD(CTSD.get(i));
                 }
                 thongBao("Chi Tiết Sử Dụng").create().show();
@@ -243,6 +263,18 @@ public class ActivityData extends AppCompatActivity{
                         android.R.layout.simple_list_item_1,CTSD));
             }
         }
+    }
+    private byte[] getByteBitmap(ImageView imageView){
+        try {
+            Bitmap bitmap=((BitmapDrawable)imageView.getDrawable()).getBitmap();
+            Bitmap resizeBitmap=Bitmap.createScaledBitmap(bitmap,120,120,false);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            resizeBitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            return bos.toByteArray();
+        }catch (Exception e){
+            Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
+        }
+        return null;
     }
     private String checkType(String type){
         String textType="";
@@ -278,7 +310,7 @@ public class ActivityData extends AppCompatActivity{
                     String maTB = c.getString(Table_ThietBi.KEY_MATB);
                     String xuatXu = c.getString(Table_ThietBi.KEY_XUATXU);
                     String maLoai = c.getString(Table_ThietBi.KEY_MALOAI);
-
+                    String url=c.getString(Table_ThietBi.KEY_IMAGE);
 
                     // tmp hashmap for single thietBi
                     HashMap<String, String> thietBi = new HashMap<String, String>();
@@ -289,7 +321,7 @@ public class ActivityData extends AppCompatActivity{
                     thietBi.put(Table_ThietBi.KEY_MATB,maTB);
                     thietBi.put(Table_ThietBi.KEY_XUATXU, xuatXu);
                     thietBi.put(Table_ThietBi.KEY_MALOAI, maLoai);
-
+                    thietBi.put(Table_ThietBi.KEY_IMAGE,url);
                     // adding thietBi to students list
                     listThietBi.add(thietBi);
                 }

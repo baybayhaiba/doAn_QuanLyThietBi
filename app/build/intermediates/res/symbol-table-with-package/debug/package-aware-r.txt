@@ -670,6 +670,9 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable background_red
+drawable background_white
+drawable background_yellow
 drawable border
 drawable bt_actived
 drawable bt_nonactived
@@ -677,6 +680,7 @@ drawable button_background
 drawable chitietsudung
 drawable choosepicture
 drawable digital
+drawable growth
 drawable ic_account_circle_black_24dp
 drawable ic_baseline_account_circle_24
 drawable ic_baseline_add_circle_24
@@ -749,6 +753,7 @@ id all
 id always
 id anh
 id async
+id barchart
 id barrier
 id beginning
 id blocking
@@ -772,9 +777,12 @@ id content
 id contentPanel
 id custom
 id customPanel
+id custom_loaiTB
 id custom_maPhong
+id custom_maTB
 id custom_tangPhong
 id custom_tenPhong
+id dataImg
 id decor_content_parent
 id default_activity_button
 id dimensions
@@ -807,13 +815,20 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id idCTSD
+id idLTB
+id idPhongHoc
 id ifRoom
 id image
 id imageURI
 id info
 id info_imageThietBi
+id info_imageThietBiCTSD
 id info_loaiTB
+id info_maPhongCTSD
 id info_maTB
+id info_ngayCTSD
+id info_soLuong
 id info_tenTB
 id info_xuatXuThietBi
 id invisible
@@ -947,6 +962,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout action_bar_layout
+layout activity_analysis
 layout activity_chi_tiet_sd
 layout activity_login
 layout activity_ma_thietbi
@@ -955,6 +971,8 @@ layout activity_phong_hoc
 layout activity_splash
 layout activity_test_json
 layout activity_thietbi
+layout list_custom_ctsd
+layout list_custom_loaitb
 layout list_custom_main
 layout list_custom_phonghoc
 layout list_custom_thietbi

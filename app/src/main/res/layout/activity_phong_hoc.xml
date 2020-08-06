@@ -8,7 +8,10 @@
     android:orientation="vertical"
     tools:context=".UI.ActivityLoaiThietBi">
 
-
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/idPhongHoc"/>
     <LinearLayout
         style="@style/linearBt"
         android:layout_margin="5dp"

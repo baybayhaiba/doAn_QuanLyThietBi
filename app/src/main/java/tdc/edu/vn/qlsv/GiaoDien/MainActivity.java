@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         startActivity(new Intent(MainActivity.this, ActivityData.class));
                         break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this,ActivityAnalysis.class));
                 }
             }
         });
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",countCTSD, Color.parseColor("#90ee02")));
         dataUI.add(new Main(R.drawable.phonghoc,"Phòng Học",countPhongHoc, Color.parseColor("#ffc77d")));
         dataUI.add(new Main(R.drawable.digital,"Dữ liệu có sẵn (online)",4, Color.parseColor("#AA00FF")));
+        dataUI.add(new Main(R.drawable.growth,"Thống kê số lượng",0,Color.parseColor("#5C6BC0")));
     }
 
     @Override

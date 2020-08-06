@@ -15,7 +15,6 @@
         <ImageView
             android:id="@+id/info_imageThietBi"
             style="@style/imageCardView"
-
             android:background="@android:color/white"
             android:scaleType="fitXY"
             android:src="@drawable/choosepicture" />

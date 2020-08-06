@@ -1,14 +1,24 @@
 package tdc.edu.vn.qlsv.Model;
 
 public class PhongHoc {
+    private int id;
     private String maPhong;
     private String loaiPhong;
     private int tang;
 
-    public PhongHoc(String maPhong, String loaiPhong, int tang) {
+    public PhongHoc(int id, String maPhong, String loaiPhong, int tang) {
+        this.id = id;
         this.maPhong = maPhong;
         this.loaiPhong = loaiPhong;
         this.tang = tang;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMaPhong() {

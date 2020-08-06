@@ -30,6 +30,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
     private ArrayList<ThietBi> dataAll;
     private Listener listener;
 
+
     @Override
     public Filter getFilter() {
         return filter;
@@ -61,6 +62,7 @@ public class CustomAdapterTB extends RecyclerView.Adapter<CustomAdapterTB.MyView
             notifyDataSetChanged();
         }
     };
+
 
     public static interface Listener{
         public void onClick(int position);

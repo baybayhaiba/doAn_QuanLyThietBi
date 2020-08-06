@@ -9,6 +9,10 @@
     tools:context="tdc.edu.vn.qltb.UI.ActivityLoaiThietBi">
 
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/idLTB"/>
 
     <LinearLayout
         style="@style/linearBt"
@@ -21,6 +25,8 @@
 
         <EditText
             android:id="@+id/edit_maLoai"
+            android:inputType="text"
+            android:ems="4"
             style="@style/editText" />
 
     </LinearLayout>
@@ -76,6 +82,8 @@
     <ListView
         android:id="@+id/list_loaiTB"
         style="@style/listView"
+        android:divider="@color/colorBlue0"
+        android:dividerHeight="10dp"
         android:layout_marginTop="5dp" />
 
 </LinearLayout>

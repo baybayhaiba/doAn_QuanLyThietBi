@@ -49,27 +49,27 @@ import tdc.edu.vn.qlsv.Model.ThietBi;
 import tdc.edu.vn.qlsv.R;
 
 
-public class ActivityThietBi extends AppCompatActivity{
+public class ActivityThietBi extends AppCompatActivity {
 
-    Spinner sp_xuatXu,sp_maLoai;
+    Spinner sp_xuatXu, sp_maLoai;
 
     ArrayList<String> dataXuatXu;
     ArrayList<String> dataMaLoai;
     ArrayList<ThietBi> dataThietBi;
 
     RecyclerView recyclerViewThietBi;
-    EditText editTenTB,editMaTB,editIDThietBi;
-    Button bt_them,bt_xoa,bt_sua,bt_clear;
+    EditText editTenTB, editMaTB, editIDThietBi;
+    Button bt_them, bt_xoa, bt_sua, bt_clear;
     //tao database de lay gia tri spinner maLoai
     DataLoaiThietBi databaseLTB;
     //luu tru database va lay tat ca
     DataThietBi databaseThietBi;
     CircleImageView imageViewURL;
     CustomAdapterTB adapterTB;
-    int index=-1;
+    int index = -1;
 
-    private static final int IMAGE_PICK_CODE=1000;
-    private static final int PERMISSION_CODE=1001;
+    private static final int IMAGE_PICK_CODE = 1000;
+    private static final int PERMISSION_CODE = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,43 +79,42 @@ public class ActivityThietBi extends AppCompatActivity{
         setControl();
         setEvent();
     }
-    private void ActionBar(){
-        ActionBar actionBar=getSupportActionBar();
+
+    private void ActionBar() {
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(R.layout.action_bar_layout);
-        ((TextView)actionBar.getCustomView().findViewById(R.id.actionBarTitle)).setText("Thiết Bị");
+        ((TextView) actionBar.getCustomView().findViewById(R.id.actionBarTitle)).setText("Thiết Bị");
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     private void setEvent() {
         //spiner xuatxu
         khoiTao();
-        final ArrayAdapter adapterXuatXu=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataXuatXu);
+        final ArrayAdapter adapterXuatXu = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataXuatXu);
         sp_xuatXu.setAdapter(adapterXuatXu);
         //spinner loaiThietbi
-        databaseLTB=new DataLoaiThietBi(this);
-        final ArrayAdapter adapterLoaiTB=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataMaLoai);
+        databaseLTB = new DataLoaiThietBi(this);
+        final ArrayAdapter adapterLoaiTB = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataMaLoai);
         sp_maLoai.setAdapter(adapterLoaiTB);
         //adapter listview
-
-        databaseThietBi=new DataThietBi(this);
-        dataThietBi=databaseThietBi.getAllThietBi();
-        adapterTB=new CustomAdapterTB(R.layout.list_custom_thietbi,dataThietBi);
+        databaseThietBi = new DataThietBi(this);
+        dataThietBi = databaseThietBi.getAllThietBi();
+        adapterTB = new CustomAdapterTB(R.layout.list_custom_thietbi, dataThietBi);
         recyclerViewThietBi.setAdapter(adapterTB);
-
 
 
         //button listener
         bt_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ThietBi thietBi= getThemThietBi();
+                ThietBi thietBi = getThemThietBi();
                 databaseThietBi.themThietbi(thietBi);
                 dataThietBi.add(thietBi);
                 Collections.sort(dataThietBi, new Comparator<ThietBi>() {
                     @Override
                     public int compare(ThietBi thietBi, ThietBi t1) {
-                        return t1.getId()-thietBi.getId();
+                        return t1.getId() - thietBi.getId();
                     }
                 });
                 adapterTB.notifyDataSetChanged();
@@ -124,12 +123,12 @@ public class ActivityThietBi extends AppCompatActivity{
         bt_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(index!=-1) {
+                if (index != -1) {
                     databaseThietBi.xoaThietBi(getSuaThietBi());
                     dataThietBi.remove(index);
                     adapterTB.notifyItemRemoved(index);
-                    index=-1;
-                }else
+                    index = -1;
+                } else
                     Toast.makeText(ActivityThietBi.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
             }
         });
@@ -139,19 +138,19 @@ public class ActivityThietBi extends AppCompatActivity{
                 editTenTB.setText("");
                 sp_maLoai.setSelection(0);
                 sp_xuatXu.setSelection(0);
-                index=-1;
-                Toast.makeText(ActivityThietBi.this, ""+databaseThietBi.MaxId(), Toast.LENGTH_SHORT).show();
+                index = -1;
+                imageViewURL.setImageResource(R.drawable.choosepicture);
             }
         });
         bt_sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(index!=-1) {
-                    ThietBi thietBi= getSuaThietBi();
+                if (index != -1) {
+                    ThietBi thietBi = getSuaThietBi();
                     databaseThietBi.suaThietBi(thietBi);
                     dataThietBi.set(index, thietBi);
                     adapterTB.notifyItemChanged(index);
-                }else
+                } else
                     Toast.makeText(ActivityThietBi.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
             }
         });
@@ -159,17 +158,15 @@ public class ActivityThietBi extends AppCompatActivity{
         imageViewURL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                            == PackageManager.PERMISSION_DENIED){
-                        String[] permissions={Manifest.permission.READ_EXTERNAL_STORAGE};
-                        requestPermissions(permissions,PERMISSION_CODE);
-                    }
-                    else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            == PackageManager.PERMISSION_DENIED) {
+                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                        requestPermissions(permissions, PERMISSION_CODE);
+                    } else {
                         PickImageFromGallery();
                     }
-                }
-                else
+                } else
                     PickImageFromGallery();
             }
         });
@@ -177,23 +174,27 @@ public class ActivityThietBi extends AppCompatActivity{
         adapterTB.setListener(new CustomAdapterTB.Listener() {
             @Override
             public void onClick(int position) {
-                index=position;
+                index = position;
                 editIDThietBi.setText(String.valueOf(dataThietBi.get(position).getId()));
                 editMaTB.setText(dataThietBi.get(position).getMaTB());
                 editTenTB.setText(dataThietBi.get(position).getTenTB());
-                int positionXuatXu=adapterXuatXu.getPosition(dataThietBi.get(position).getXuatXuTB());
-                int positionLoaiTB=adapterLoaiTB.getPosition(dataThietBi.get(position).getMaLoaiTB());
+                int positionXuatXu = adapterXuatXu.getPosition(dataThietBi.get(position).getXuatXuTB());
+                int positionLoaiTB = adapterLoaiTB.getPosition(dataThietBi.get(position).getMaLoaiTB());
                 sp_xuatXu.setSelection(positionXuatXu);
-                sp_maLoai.setSelection(positionLoaiTB);
-                if(dataThietBi.get(position).getImageTB()!=null) {
+                if (positionLoaiTB == -1) {
+                    Toast.makeText
+                            (ActivityThietBi.this,
+                                    "Ban khong co du lieu ma loai",
+                                    Toast.LENGTH_SHORT).show();
+                } else {
+                    sp_maLoai.setSelection(positionLoaiTB);
+                }
+                if (dataThietBi.get(position).getImageTB() != null) {
                     Bitmap bitmapToImage = BitmapFactory.decodeByteArray
                             (dataThietBi.get(position).getImageTB(), 0, dataThietBi.get(position).getImageTB().length);
                     imageViewURL.setImageBitmap(bitmapToImage);
-                }
-                else
+                } else
                     imageViewURL.setImageResource(R.drawable.choosepicture);
-                Toast.makeText(ActivityThietBi.this, ""+dataThietBi.get(position).getId()+"|"+
-                        editMaTB.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -204,70 +205,74 @@ public class ActivityThietBi extends AppCompatActivity{
         dataXuatXu.add("Hàn Quốc");
         dataXuatXu.add("Thái Lan");
         dataXuatXu.add("Nhật");
-        databaseLTB=new DataLoaiThietBi(this);
-        for(LoaiThietBi loaiTB:databaseLTB.getAllLoaiTB())
+        databaseLTB = new DataLoaiThietBi(this);
+        for (LoaiThietBi loaiTB : databaseLTB.getAllLoaiTB())
             dataMaLoai.add(loaiTB.getMaLoai());
     }
 
 
     private void setControl() {
-        sp_xuatXu=findViewById(R.id.sp_xuatXu);
+        sp_xuatXu = findViewById(R.id.sp_xuatXu);
 
-        dataXuatXu=new ArrayList<>();
-        dataMaLoai=new ArrayList<>();
-        dataThietBi=new ArrayList<>();
-        editMaTB=findViewById(R.id.edit_maTB);
-        editIDThietBi=findViewById(R.id.edit_idTB);
-        editTenTB=findViewById(R.id.edit_tenTB);
-        sp_maLoai=findViewById(R.id.sp_maLoai);
+        dataXuatXu = new ArrayList<>();
+        dataMaLoai = new ArrayList<>();
+        dataThietBi = new ArrayList<>();
+        editMaTB = findViewById(R.id.edit_maTB);
+        editIDThietBi = findViewById(R.id.edit_idTB);
+        editTenTB = findViewById(R.id.edit_tenTB);
+        sp_maLoai = findViewById(R.id.sp_maLoai);
 
-        bt_them=findViewById(R.id.bt_add);
-        bt_xoa=findViewById(R.id.bt_remove);
-        bt_sua=findViewById(R.id.bt_update);
-        bt_clear=findViewById(R.id.bt_clear);
-        imageViewURL=findViewById(R.id.imageURI);
-        recyclerViewThietBi=findViewById(R.id.recyclerViewThietBi);
+        bt_them = findViewById(R.id.bt_add);
+        bt_xoa = findViewById(R.id.bt_remove);
+        bt_sua = findViewById(R.id.bt_update);
+        bt_clear = findViewById(R.id.bt_clear);
+        imageViewURL = findViewById(R.id.imageURI);
+        recyclerViewThietBi = findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
     }
-    private ThietBi getThemThietBi(){
-        int id=databaseThietBi.MaxId()+1;
-        String tenTB=editTenTB.getText().toString();
-        String maLoai=sp_maLoai.getSelectedItem().toString();
-        String xuatXu=sp_xuatXu.getSelectedItem().toString();
-        String maTB= databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai)+1);
-        byte[] bytes=getByteBitmap();
-        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai,bytes);
+
+    private ThietBi getThemThietBi() {
+        int id = databaseThietBi.MaxId() + 1;
+        String tenTB = editTenTB.getText().toString();
+        String maLoai = sp_maLoai.getSelectedItem().toString();
+        String xuatXu = sp_xuatXu.getSelectedItem().toString();
+        String maTB = databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai) + 1);
+        byte[] bytes = getByteBitmap();
+        return new ThietBi(id, maTB, tenTB, xuatXu, maLoai, bytes);
     }
-    private byte[] getByteBitmap(){
+
+    private byte[] getByteBitmap() {
         try {
-            Bitmap bitmap=((BitmapDrawable)imageViewURL.getDrawable()).getBitmap();
-            Bitmap resizeBitmap=Bitmap.createScaledBitmap(bitmap,120,120,false);
+            Bitmap bitmap = ((BitmapDrawable) imageViewURL.getDrawable()).getBitmap();
+            Bitmap resizeBitmap = Bitmap.createScaledBitmap(bitmap, 120, 120, false);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             resizeBitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
             return bos.toByteArray();
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
         }
         return null;
     }
-    private ThietBi getSuaThietBi(){
-        int id=Integer.parseInt(editIDThietBi.getText().toString());
-        String tenTB=editTenTB.getText().toString();
-        String maLoai=sp_maLoai.getSelectedItem().toString();
-        String xuatXu=sp_xuatXu.getSelectedItem().toString();
-        String maTB="";
-        if(!dataThietBi.get(index).getMaLoaiTB().equals(sp_maLoai.getSelectedItem().toString()))
+
+    private ThietBi getSuaThietBi() {
+        int id = Integer.parseInt(editIDThietBi.getText().toString());
+        String tenTB = editTenTB.getText().toString();
+        String maLoai = sp_maLoai.getSelectedItem().toString();
+        String xuatXu = sp_xuatXu.getSelectedItem().toString();
+        String maTB = "";
+        if (!dataThietBi.get(index).getMaLoaiTB().equals(sp_maLoai.getSelectedItem().toString()))
             maTB = databaseThietBi.createNewType(maLoai, databaseThietBi.MaxType(maLoai) + 1);
         else
             maTB = editMaTB.getText().toString();
-        byte[] bytes=getByteBitmap();
-        return new ThietBi(id,maTB,tenTB,xuatXu,maLoai,bytes);
+        byte[] bytes = getByteBitmap();
+        return new ThietBi(id, maTB, tenTB, xuatXu, maLoai, bytes);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
-                startActivity(new Intent(ActivityThietBi.this,MainActivity.class));
+                startActivity(new Intent(ActivityThietBi.this, MainActivity.class));
                 break;
             case R.id.mnExit:
                 Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
@@ -276,11 +281,12 @@ public class ActivityThietBi extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search,menu);
-        MenuItem menuItem=menu.findItem(R.id.mnSearch);
-        SearchView searchView=(SearchView) menuItem.getActionView();
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        MenuItem menuItem = menu.findItem(R.id.mnSearch);
+        SearchView searchView = (SearchView) menuItem.getActionView();
 
         searchView.setQueryHint("Search Here");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -298,17 +304,18 @@ public class ActivityThietBi extends AppCompatActivity{
         });
         return super.onCreateOptionsMenu(menu);
     }
+
     private void PickImageFromGallery() {
-        Intent intent=new Intent(Intent.ACTION_PICK);
+        Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        startActivityForResult(intent,IMAGE_PICK_CODE);
+        startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case PERMISSION_CODE:
-                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     PickImageFromGallery();
                 else
                     Toast.makeText(this, "Permisstion deny", Toast.LENGTH_SHORT).show();

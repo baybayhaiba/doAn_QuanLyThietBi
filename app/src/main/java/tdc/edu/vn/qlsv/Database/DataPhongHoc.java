@@ -34,11 +34,12 @@ public class DataPhongHoc {
        Cursor cursor=db.rawQuery(sql,null);
        if(cursor!=null && cursor.moveToFirst()) {
            do {
+               int id=cursor.getInt(0);
                String maphong = cursor.getString(1);
                String loaiphong = cursor.getString(2);
                int tang=cursor.getInt(3);
 
-               PhongHoc PhongHoc = new PhongHoc(maphong , loaiphong,tang);
+               PhongHoc PhongHoc = new PhongHoc(id,maphong , loaiphong,tang);
                LoaiPhong.add(PhongHoc);
            } while (cursor.moveToNext());
        }
@@ -47,7 +48,8 @@ public class DataPhongHoc {
    public void XoaMaPhong(PhongHoc MaPhong)
    {
        SQLiteDatabase db = handler.getWritableDatabase();
-       db.delete(Table_PhongHoc.TABLE_NAME,Table_PhongHoc.KEY_MAPHONG+"=?",new String[]{MaPhong.getMaPhong()});
+       db.delete(Table_PhongHoc.TABLE_NAME,Table_PhongHoc.KEY_ID+"=?",
+               new String[]{String.valueOf(MaPhong.getId())});
    }
     public int CapNhatPhongHoc(PhongHoc PhongHoc){
         SQLiteDatabase db=handler.getWritableDatabase();
@@ -55,12 +57,24 @@ public class DataPhongHoc {
         values.put(Table_PhongHoc.KEY_MAPHONG,PhongHoc.getMaPhong());
         values.put(Table_PhongHoc.KEY_LOAIPHONG,PhongHoc.getLoaiPhong());
         values.put(Table_PhongHoc.KEY_TANG,PhongHoc.getTang());
-        return db.update(Table_PhongHoc.TABLE_NAME,values,Table_PhongHoc.KEY_MAPHONG+"=?",new String[]{PhongHoc.getMaPhong()});
+        return db.update(Table_PhongHoc.TABLE_NAME,values,Table_PhongHoc.KEY_ID+"=?",
+                new String[]{String.valueOf(PhongHoc.getId())});
     }
     public int getCountPhongHoc(){
         String sql="SELECT * from "+ Table_PhongHoc.TABLE_NAME;
         SQLiteDatabase db=handler.getReadableDatabase();
         Cursor cursor=db.rawQuery(sql,null);
         return cursor.getCount();
+    }
+    public int MaxId(){
+        String sql="SELECT "+Table_PhongHoc.TABLE_NAME+"."+Table_PhongHoc.KEY_ID
+                +",MAX("+Table_PhongHoc.KEY_ID+") from "+Table_PhongHoc.TABLE_NAME;
+        SQLiteDatabase db=handler.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,null);
+        if(cursor.moveToFirst()){
+            if(!cursor.isNull(0))
+                return cursor.getInt(0);
+        }
+        return 0;
     }
 }

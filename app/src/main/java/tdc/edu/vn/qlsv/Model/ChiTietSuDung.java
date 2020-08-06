@@ -1,18 +1,27 @@
 package tdc.edu.vn.qlsv.Model;
 
 public class ChiTietSuDung {
+    private int id;
     private String maPhong;
     private String maTB;
     private String ngaySuDung;
     private int soLuong;
 
-    public ChiTietSuDung(String maPhong, String maTB, String ngaySuDung, int soLuong) {
+    public ChiTietSuDung(int id, String maPhong, String maTB, String ngaySuDung, int soLuong) {
+        this.id = id;
         this.maPhong = maPhong;
         this.maTB = maTB;
         this.ngaySuDung = ngaySuDung;
         this.soLuong = soLuong;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getMaPhong() {
         return maPhong;
     }

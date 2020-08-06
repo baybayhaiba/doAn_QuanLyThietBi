@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tdc.edu.vn.qlsv"
-    android:versionCode="1"
+    android:versionCode="2"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityAnalysis" />
         <activity android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityData" />
         <activity
             android:name="tdc.edu.vn.qlsv.GiaoDien.ActivityLoaiThietBi"
@@ -50,6 +51,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="tdc.edu.vn.qlsv.com.squareup.picasso"
+            android:exported="false" />
     </application>
 
 </manifest>

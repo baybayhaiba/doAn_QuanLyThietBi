@@ -1,12 +1,22 @@
 package tdc.edu.vn.qlsv.Model;
 
 public class LoaiThietBi {
+    private int id;
     private String maLoai;
     private String tenLoai;
 
-    public LoaiThietBi(String maLoai, String tenLoai) {
+    public LoaiThietBi(int id, String maLoai, String tenLoai) {
+        this.id = id;
         this.maLoai = maLoai;
         this.tenLoai = tenLoai;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMaLoai() {
