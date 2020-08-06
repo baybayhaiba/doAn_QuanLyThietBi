@@ -133,6 +133,12 @@ public class ActivityChiTietSD extends AppCompatActivity {
                 }
             }
         });
+        bt_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         adapter.setListener(new CustomAdapterCTSD.ListenerCTSD() {
             @Override
             public void onClick(int position) {

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
@@ -115,6 +116,21 @@ public class DataCTSD {
                 return cursor.getBlob(0);
         }
         return null;
+    }
+    public HashMap<String, Integer> getInfomation(){
+        HashMap <String, Integer> inform=new HashMap<>();
+
+        String sql="SELECT chiTietSD.ngaySuDung,SUM(chiTietSD.ngaySuDung) " +
+                "AS SumDay From chiTietSD " +
+                "GROUP BY chiTietSD.ngaySuDung";
+        SQLiteDatabase db=handler.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,null);
+        if (cursor.moveToFirst()){
+          do{
+              inform.put(cursor.getString(0),cursor.getInt(1));
+          }while (cursor.moveToNext());
+        }
+        return inform;
     }
 
 }
