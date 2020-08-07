@@ -30,7 +30,7 @@ public class DataPhongHoc {
    {
        ArrayList<PhongHoc>LoaiPhong=new ArrayList<>();
        SQLiteDatabase db=handler.getReadableDatabase();
-       String sql="SELECT * from " + Table_PhongHoc.TABLE_NAME;
+       String sql="SELECT * from " + Table_PhongHoc.TABLE_NAME+" ORDER by "+Table_ThietBi.KEY_ID+" DESC";
        Cursor cursor=db.rawQuery(sql,null);
        if(cursor!=null && cursor.moveToFirst()) {
            do {

@@ -15,6 +15,11 @@ public class ChiTietSuDung {
         this.soLuong = soLuong;
     }
 
+    public ChiTietSuDung(String ngaySuDung, int soLuong) {
+        this.ngaySuDung = ngaySuDung;
+        this.soLuong = soLuong;
+    }
+
     public int getId() {
         return id;
     }

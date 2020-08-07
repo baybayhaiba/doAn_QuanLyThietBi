@@ -17,12 +17,11 @@ import android.widget.TextView;
 public class ActivitySplash extends AppCompatActivity {
 
     boolean running =true;
-    private  static int SPLASH_TIMER =1000;
+    private  static int SPLASH_TIMER =3000;
 
     Animation topAnim,bottomAim;
     TextView ThietBi;
     ImageView imageView;
-    AnimationDrawable anim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +46,8 @@ public class ActivitySplash extends AppCompatActivity {
         topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-
-
-
         ThietBi.setAnimation(bottomAim);
         imageView.setAnimation(topAnim);
-
-
-        //imageView.setBackgroundResource(R.drawable.doimau);
-        //anim=(AnimationDrawable)imageView.getBackground();
-        //anim.start();
-
-
 
         new Handler().postDelayed(new Runnable() {
             @Override

@@ -9,9 +9,10 @@
 
 
     <TextView
+        android:id="@+id/idCTSD"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/idCTSD"/>
+        android:layout_height="0dp" />
+
     <LinearLayout
         style="@style/linearBt"
         android:layout_margin="5dp"
@@ -19,13 +20,37 @@
 
         <TextView
             style="@style/textView"
+            android:layout_marginRight="20dp"
             android:text="Mã Phòng:" />
 
-        <Spinner
-            android:layout_marginStart="30sp"
-            android:id="@+id/sp_maPhong"
-            style="@style/editText" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/custom_spinner"
+            android:orientation="horizontal">
 
+            <Spinner
+                android:id="@+id/sp_maPhong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/arrowdropdown" />
+
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -35,12 +60,38 @@
 
         <TextView
             style="@style/textView"
+            android:layout_marginRight="13dp"
             android:text="@string/codeDevice" />
 
-        <Spinner
-            android:layout_marginStart="20sp"
-            android:id="@+id/sp_MaThietBi"
-            style="@style/spinner" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+
+            android:background="@drawable/custom_spinner"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/sp_MaThietBi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/arrowdropdown" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -56,8 +107,7 @@
         <EditText
             android:id="@+id/edit_ngaySuDung"
             style="@style/editText"
-            android:inputType="datetime"
-             />
+            android:inputType="datetime" />
 
     </LinearLayout>
 
@@ -71,10 +121,10 @@
             android:text="Số Lượng:" />
 
         <EditText
-           style="@style/editText"
-            android:inputType="number"
+            android:id="@+id/edit_soLuong"
+            style="@style/editText"
             android:layout_marginStart="40sp"
-            android:id="@+id/edit_soLuong"/>
+            android:inputType="number" />
 
     </LinearLayout>
 

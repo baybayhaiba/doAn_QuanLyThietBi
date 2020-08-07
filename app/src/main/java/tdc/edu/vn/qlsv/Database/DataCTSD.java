@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class DataCTSD {
         ArrayList<ChiTietSuDung>ChiTietSuDung=new ArrayList<>();
 
         SQLiteDatabase db=handler.getReadableDatabase();
-        String sql="SELECT * from " + Table_ChiTietSD.TABLE_NAME;
+        String sql="SELECT * from " + Table_ChiTietSD.TABLE_NAME+" ORDER by "+Table_ChiTietSD.KEY_ID+" DESC";
         Cursor cursor=db.rawQuery(sql,null);
         if(cursor!=null && cursor.moveToFirst()) {
             do {
@@ -117,20 +118,23 @@ public class DataCTSD {
         }
         return null;
     }
-    public HashMap<String, Integer> getInfomation(){
-        HashMap <String, Integer> inform=new HashMap<>();
+    public ArrayList<ChiTietSuDung> getInfomation(){
+        ArrayList<ChiTietSuDung> listInform=new ArrayList<>();
 
-        String sql="SELECT chiTietSD.ngaySuDung,SUM(chiTietSD.ngaySuDung) " +
-                "AS SumDay From chiTietSD " +
-                "GROUP BY chiTietSD.ngaySuDung";
+        String sql="SELECT substr(chiTietSD.ngaySuDung,7,10),SUM(soLuong)\n" +
+                "From chiTietSD GROUP by substr(ngaySuDung,7,10) \n" +
+                "ORDER BY substr(ngaySuDung,7,10) asc";
         SQLiteDatabase db=handler.getReadableDatabase();
         Cursor cursor=db.rawQuery(sql,null);
         if (cursor.moveToFirst()){
           do{
-              inform.put(cursor.getString(0),cursor.getInt(1));
+              String ngaySuDung=cursor.getString(0);
+              int soLuong=cursor.getInt(1);
+              listInform.add(new ChiTietSuDung(ngaySuDung,soLuong));
           }while (cursor.moveToNext());
+
         }
-        return inform;
+        return listInform;
     }
 
 }

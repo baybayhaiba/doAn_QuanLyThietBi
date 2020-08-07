@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataCTSD;
@@ -70,6 +72,12 @@ public class ActivityPhongHoc extends AppCompatActivity {
                 PhongHoc phongHoc = themPhongHoc();
                 dataPhongHoc.themPhongHoc(phongHoc);
                 listPhongHoc.add(phongHoc);
+                Collections.sort(listPhongHoc, new Comparator<PhongHoc>() {
+                    @Override
+                    public int compare(PhongHoc phongHoc, PhongHoc t1) {
+                        return t1.getId()-phongHoc.getId();
+                    }
+                });
                 adapterPhongHoc.notifyDataSetChanged();
             }
         });

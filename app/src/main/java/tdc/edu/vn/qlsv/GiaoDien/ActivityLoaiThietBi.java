@@ -78,6 +78,13 @@ public class ActivityLoaiThietBi extends AppCompatActivity {
                 LoaiThietBi ltb = ThemLoaiTB();
                 dataChiTiet.themLoaiTB(ltb);
                 loaiThietBi.add(ltb);
+                Collections.sort(loaiThietBi, new Comparator<LoaiThietBi>() {
+
+                    @Override
+                    public int compare(LoaiThietBi loaiThietBi, LoaiThietBi t1) {
+                        return t1.getId()-loaiThietBi.getId();
+                    }
+                });
                 adapter.notifyDataSetChanged();
             }
         });

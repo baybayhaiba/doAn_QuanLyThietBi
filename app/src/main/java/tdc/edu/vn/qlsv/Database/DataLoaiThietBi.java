@@ -35,7 +35,7 @@ public class DataLoaiThietBi {
     public ArrayList<LoaiThietBi> getAllLoaiTB(){
         ArrayList<LoaiThietBi> LoaiTB=new ArrayList<>();
         SQLiteDatabase db=handler.getReadableDatabase();
-        String sql="SELECT * from " + Table_LoaiThietBi.TABLE_NAME;
+        String sql="SELECT * from " + Table_LoaiThietBi.TABLE_NAME+" ORDER by "+Table_LoaiThietBi.KEY_ID+" DESC";
         Cursor cursor=db.rawQuery(sql,null);
         if(cursor!=null && cursor.moveToFirst()) {
             do {
@@ -50,7 +50,8 @@ public class DataLoaiThietBi {
     }
     public void XoaLoaiTB(LoaiThietBi loaiTB){
         SQLiteDatabase db=handler.getWritableDatabase();
-        db.delete(Table_LoaiThietBi.TABLE_NAME,Table_LoaiThietBi.KEY_ID+"=?",new String[]{String.valueOf(loaiTB.getId())});
+        db.delete(Table_LoaiThietBi.TABLE_NAME,Table_LoaiThietBi.KEY_ID+"=?",
+                new String[]{String.valueOf(loaiTB.getId())});
     }
     public int CapNhatLoaiTB(LoaiThietBi loaiThietBi){
         SQLiteDatabase db=handler.getWritableDatabase();

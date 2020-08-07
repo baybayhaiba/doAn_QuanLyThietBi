@@ -23,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterCTSD;
 import tdc.edu.vn.qlsv.Database.DataCTSD;
@@ -101,8 +103,13 @@ public class ActivityChiTietSD extends AppCompatActivity {
                 ChiTietSuDung ctsd=ThemCTSD();
                 dataCTSD.themCTSD(ctsd);
                 chiTietSuDung.add(ctsd);
+                Collections.sort(chiTietSuDung, new Comparator<ChiTietSuDung>() {
+                    @Override
+                    public int compare(ChiTietSuDung chiTietSuDung, ChiTietSuDung t1) {
+                        return t1.getId()-chiTietSuDung.getId();
+                    }
+                });
                 adapter.notifyDataSetChanged();
-                Toast.makeText(ActivityChiTietSD.this, "" + getCTSD().toString(), Toast.LENGTH_SHORT).show();
             }
         });
         bt_remove.setOnClickListener(new View.OnClickListener() {

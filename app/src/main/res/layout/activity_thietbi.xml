@@ -22,6 +22,7 @@
 
         <TextView
             style="@style/textView"
+            android:layout_marginRight="17dp"
             android:text="@string/nameDevice" />
 
         <EditText
@@ -37,12 +38,37 @@
 
         <TextView
             style="@style/textView"
+            android:layout_marginRight="40dp"
             android:text="@string/origin" />
 
-        <Spinner
-            android:id="@+id/sp_xuatXu"
-            style="@style/spinner"
-            android:layout_marginLeft="30sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/custom_spinner"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/sp_xuatXu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/arrowdropdown" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -53,13 +79,38 @@
 
         <TextView
             style="@style/textView"
-            android:text="@string/code_type" />
+            android:layout_marginRight="20dp"
+            android:text="@string/maThietBi" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/custom_spinner"
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/sp_maLoai"
-            style="@style/spinner"
-            android:layout_marginLeft="30sp" />
+            <Spinner
+                android:id="@+id/sp_maLoai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/arrowdropdown" />
+
+        </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         style="@style/linearBt"
         android:layout_margin="5dp"
@@ -68,7 +119,7 @@
         <TextView
             style="@style/textView"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="30dp"
             android:text="Chọn ảnh" />
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"

@@ -6,8 +6,10 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -58,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this,ActivityPhongHoc.class));
                         break;
                     case 4:
-                        startActivity(new Intent(MainActivity.this, ActivityData.class));
+                        startActivity(new Intent(MainActivity.this,ActivityAnalysis.class));
                         break;
                     case 5:
-                        startActivity(new Intent(MainActivity.this,ActivityAnalysis.class));
+                        startActivity(new Intent(MainActivity.this, ActivityData.class));
+                        break;
+
                 }
             }
         });
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setControl() {
         list=findViewById(R.id.list_hienThiDS);
-        list.setLayoutManager(new LinearLayoutManager(this));
+        list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         data=new ArrayList<>();
         dataUI=new ArrayList<>();
     }
@@ -83,12 +87,14 @@ public class MainActivity extends AppCompatActivity {
         int countThietBi=new DataThietBi(this).getCount();
         int countPhongHoc=new DataPhongHoc(this).getCountPhongHoc();
         int countCTSD=new DataCTSD(this).getCountCTSD();
+        int countAnalysis=new DataCTSD(this).getInfomation().size();
         dataUI.add(new Main(R.drawable.mathietbi,"Mã Thiết Bị",countMaThietBi,Color.parseColor("#b794f6")));
         dataUI.add(new Main(R.drawable.thietbi,"Thiết Bị",countThietBi, Color.parseColor("#c6f68d")));
         dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",countCTSD, Color.parseColor("#90ee02")));
         dataUI.add(new Main(R.drawable.phonghoc,"Phòng Học",countPhongHoc, Color.parseColor("#ffc77d")));
+        dataUI.add(new Main(R.drawable.growth,"Thống kê số lượng",countAnalysis,Color.parseColor("#5C6BC0")));
         dataUI.add(new Main(R.drawable.digital,"Dữ liệu có sẵn (online)",4, Color.parseColor("#AA00FF")));
-        dataUI.add(new Main(R.drawable.growth,"Thống kê số lượng",0,Color.parseColor("#5C6BC0")));
+
     }
 
     @Override

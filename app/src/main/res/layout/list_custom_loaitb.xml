@@ -8,13 +8,18 @@
 
     <TextView
         android:id="@+id/custom_maTB"
-        style="@style/textViewCardView"
-        android:text="Test"
-        android:textSize="20sp"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="6dip"
+        android:text="Name"
+        android:textSize="16sp"
+        android:textStyle="bold" />
     <TextView
         android:layout_marginTop="5dp"
         android:id="@+id/custom_loaiTB"
-        style="@style/textViewCardView"
-        android:text="Test"
-        android:textSize="15sp"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:text="Email" />
 </LinearLayout>
