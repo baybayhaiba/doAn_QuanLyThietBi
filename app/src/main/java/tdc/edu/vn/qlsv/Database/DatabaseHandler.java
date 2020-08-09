@@ -8,6 +8,7 @@ import tdc.edu.vn.qlsv.TableDatabase.Table_ChiTietSD;
 import tdc.edu.vn.qlsv.TableDatabase.Table_LoaiThietBi;
 import tdc.edu.vn.qlsv.TableDatabase.Table_PhongHoc;
 import tdc.edu.vn.qlsv.TableDatabase.Table_ThietBi;
+import tdc.edu.vn.qlsv.TableDatabase.Table_TinhTrang;
 
 
 //import com.example.quanlythietbi.TableSQL.Table_ChiTietSD;
@@ -48,12 +49,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 +Table_PhongHoc.KEY_ID + " INTEGER PRIMARY KEY,"
                 +Table_PhongHoc.KEY_MAPHONG + " TEXT,"
                 +Table_PhongHoc.KEY_LOAIPHONG + " TEXT,"
-                +Table_PhongHoc.KEY_TANG + " INTEGER);";
+                +Table_PhongHoc.KEY_TANG + " INTEGER,"
+                + Table_PhongHoc.KEY_IMAGE+" BLOB);";
+        //tao bang tinh trang
+        String sqlTinhTrang="CREATE TABLE "+ Table_TinhTrang.TABLE_NAME+"("
+                +Table_TinhTrang.KEY_ID+" INTEGER PRIMARY KEY,"
+                +Table_TinhTrang.KEY_MAPHONG+" TEXT,"
+                +Table_TinhTrang.KEY_MATB+" TEXT,"
+                +Table_TinhTrang.KEY_NGAYSUDUNG+" TEXT,"
+                +Table_TinhTrang.KEY_TINHTRANG+" TEXT);";
 
         db.execSQL(sqlLoaiThietBi);
         db.execSQL(sqlThietBi);
         db.execSQL(sqlChiTietSD);
         db.execSQL(sqlPhongHoc);
+        db.execSQL(sqlTinhTrang);
         //dataAvailable();
     }
 

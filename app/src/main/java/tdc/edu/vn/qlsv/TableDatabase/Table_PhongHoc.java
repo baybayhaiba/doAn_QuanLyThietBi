@@ -9,4 +9,5 @@ public class Table_PhongHoc {
     public static final String KEY_MAPHONG="maPhong";
     public static final String KEY_LOAIPHONG="loaiPhong";
     public static final String KEY_TANG="tang";
+    public static final String KEY_IMAGE="anhPhongHoc";
 }

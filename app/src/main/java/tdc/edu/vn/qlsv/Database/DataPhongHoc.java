@@ -23,6 +23,7 @@ public class DataPhongHoc {
             values.put(Table_PhongHoc.KEY_MAPHONG,Phonghoc.getMaPhong());
             values.put(Table_PhongHoc.KEY_LOAIPHONG,Phonghoc.getLoaiPhong());
             values.put(Table_PhongHoc.KEY_TANG,Phonghoc.getTang());
+            values.put(Table_PhongHoc.KEY_IMAGE,Phonghoc.getImagePhongHoc());
             db.insert(Table_PhongHoc.TABLE_NAME,null,values);
             db.close();
     }
@@ -38,8 +39,8 @@ public class DataPhongHoc {
                String maphong = cursor.getString(1);
                String loaiphong = cursor.getString(2);
                int tang=cursor.getInt(3);
-
-               PhongHoc PhongHoc = new PhongHoc(id,maphong , loaiphong,tang);
+               byte[] imagePhongHoc=cursor.getBlob(4);
+               PhongHoc PhongHoc = new PhongHoc(id,maphong , loaiphong,tang,imagePhongHoc);
                LoaiPhong.add(PhongHoc);
            } while (cursor.moveToNext());
        }
@@ -57,6 +58,7 @@ public class DataPhongHoc {
         values.put(Table_PhongHoc.KEY_MAPHONG,PhongHoc.getMaPhong());
         values.put(Table_PhongHoc.KEY_LOAIPHONG,PhongHoc.getLoaiPhong());
         values.put(Table_PhongHoc.KEY_TANG,PhongHoc.getTang());
+        values.put(Table_PhongHoc.KEY_IMAGE,PhongHoc.getImagePhongHoc());
         return db.update(Table_PhongHoc.TABLE_NAME,values,Table_PhongHoc.KEY_ID+"=?",
                 new String[]{String.valueOf(PhongHoc.getId())});
     }

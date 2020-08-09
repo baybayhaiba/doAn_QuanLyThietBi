@@ -123,7 +123,7 @@
             android:text="Chọn ảnh" />
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
-            android:id="@+id/imageURI"
+            android:id="@+id/imageThietBi"
             android:layout_height="50dp"
             android:src="@drawable/choosepicture"/>
     </LinearLayout>

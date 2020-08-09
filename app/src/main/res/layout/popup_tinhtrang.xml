@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_tinhTrang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Thêm tình trạng thiết bị"
+                android:gravity="center"
+                android:textSize="20sp"/>
+            <Spinner
+                android:id="@+id/sp_tinhTrang"
+                android:layout_below="@id/title_tinhTrang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/spTinhTrang"
+                android:layout_marginBottom="20dp"
+                android:hint="Tình trạng" />
+
+
+            <Button
+                android:id="@+id/bt_TinhTrang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPink"
+                android:textColor="@android:color/white"
+                android:layout_below="@id/sp_tinhTrang"
+                android:textSize="20dp"
+                android:text="Hoàn thành"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

@@ -5,6 +5,7 @@ package tdc.edu.vn.qlsv.GiaoDien;
 //import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -67,7 +68,6 @@ public class ActivityThietBi extends AppCompatActivity {
     CircleImageView imageViewURL;
     CustomAdapterTB adapterTB;
     int index = -1;
-
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
 
@@ -102,7 +102,6 @@ public class ActivityThietBi extends AppCompatActivity {
         dataThietBi = databaseThietBi.getAllThietBi();
         adapterTB = new CustomAdapterTB(R.layout.list_custom_thietbi, dataThietBi);
         recyclerViewThietBi.setAdapter(adapterTB);
-
 
         //button listener
         bt_them.setOnClickListener(new View.OnClickListener() {
@@ -195,6 +194,7 @@ public class ActivityThietBi extends AppCompatActivity {
                     imageViewURL.setImageBitmap(bitmapToImage);
                 } else
                     imageViewURL.setImageResource(R.drawable.choosepicture);
+
             }
         });
     }
@@ -226,7 +226,7 @@ public class ActivityThietBi extends AppCompatActivity {
         bt_xoa = findViewById(R.id.bt_remove);
         bt_sua = findViewById(R.id.bt_update);
         bt_clear = findViewById(R.id.bt_clear);
-        imageViewURL = findViewById(R.id.imageURI);
+        imageViewURL = findViewById(R.id.imageThietBi);
         recyclerViewThietBi = findViewById(R.id.recyclerViewThietBi);
         recyclerViewThietBi.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -253,7 +253,13 @@ public class ActivityThietBi extends AppCompatActivity {
         }
         return null;
     }
-
+    private int checkPositionSearch(String tenThietBi){
+        for (int i=0;i<dataThietBi.size();i++){
+            if(dataThietBi.get(i).getTenTB()==tenThietBi)
+                return i;
+        }
+        return -1;
+    }
     private ThietBi getSuaThietBi() {
         int id = Integer.parseInt(editIDThietBi.getText().toString());
         String tenTB = editTenTB.getText().toString();
@@ -281,7 +287,6 @@ public class ActivityThietBi extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
@@ -289,6 +294,7 @@ public class ActivityThietBi extends AppCompatActivity {
         SearchView searchView = (SearchView) menuItem.getActionView();
 
         searchView.setQueryHint("Search Here");
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -300,12 +306,12 @@ public class ActivityThietBi extends AppCompatActivity {
                 adapterTB.getFilter().filter(s);
                 return false;
             }
-
         });
+
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void PickImageFromGallery() {
+    public void PickImageFromGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, IMAGE_PICK_CODE);

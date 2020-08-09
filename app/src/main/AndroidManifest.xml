@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiaoDien.ActivityAnalysis"></activity>
+        <activity android:name=".GiaoDien.ActivityTinhTrang"></activity>
+        <activity android:name=".GiaoDien.ActivityAnalysisDetail" />
+        <activity android:name=".GiaoDien.ActivityAnalysis" />
         <activity android:name=".GiaoDien.ActivityData" />
         <activity
             android:name=".GiaoDien.ActivityLoaiThietBi"

@@ -2,6 +2,7 @@ package tdc.edu.vn.qlsv.Adapter;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
@@ -23,6 +24,7 @@ import java.util.Collection;
 import de.hdodenhof.circleimageview.CircleImageView;
 import tdc.edu.vn.qlsv.Database.DataCTSD;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
+import tdc.edu.vn.qlsv.GiaoDien.ActivityTinhTrang;
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.Model.ThietBi;
@@ -51,6 +53,7 @@ public class CustomAdapterCTSD extends RecyclerView.Adapter<CustomAdapterCTSD.My
         private TextView tvMaPhong;
         private TextView tvNgaySD;
         private TextView soLuongCTSD;
+        private ImageView imgDetail;
         private CardView cardView;
 
 
@@ -60,6 +63,7 @@ public class CustomAdapterCTSD extends RecyclerView.Adapter<CustomAdapterCTSD.My
             tvMaPhong = itemView.findViewById(R.id.info_maPhongCTSD);
             tvNgaySD = itemView.findViewById(R.id.info_ngayCTSD);
             soLuongCTSD = itemView.findViewById(R.id.info_soLuong);
+            imgDetail= itemView.findViewById(R.id.info_detail);
             cardView = v;
         }
     }
@@ -75,7 +79,7 @@ public class CustomAdapterCTSD extends RecyclerView.Adapter<CustomAdapterCTSD.My
     @Override
     public void onBindViewHolder(@NonNull final CustomAdapterCTSD.MyViewHolder myViewHolder, int i) {
         final CardView cardView = myViewHolder.cardView;
-        ChiTietSuDung chiTietSuDung = data.get(i);
+        final ChiTietSuDung chiTietSuDung = data.get(i);
         databaseCTSD=new DataCTSD(context);
 
         final byte[] getImage=databaseCTSD.getImageThietBi(chiTietSuDung.getMaTB());
@@ -91,15 +95,26 @@ public class CustomAdapterCTSD extends RecyclerView.Adapter<CustomAdapterCTSD.My
         }
         myViewHolder.tvMaPhong.setText("Mã Phòng:"+chiTietSuDung.getMaPhong());
         myViewHolder.tvNgaySD.setText("Ngày sử dụng:"+chiTietSuDung.getNgaySuDung());
-        if (chiTietSuDung.getSoLuong() < 10)
-            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_white);
+//        if (chiTietSuDung.getSoLuong() < 10)
+//            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_white);
+//
+//        else if (chiTietSuDung.getSoLuong() < 20)
+//            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_yellow);
+//        else
+//            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_red);
+        myViewHolder.soLuongCTSD.setText("Số lượng:"+String.valueOf(chiTietSuDung.getSoLuong()));
 
-        else if (chiTietSuDung.getSoLuong() < 20)
-            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_yellow);
-        else
-            myViewHolder.soLuongCTSD.setBackgroundResource(R.drawable.background_red);
-        myViewHolder.soLuongCTSD.setText(String.valueOf(chiTietSuDung.getSoLuong()));
-
+        myViewHolder.imgDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context,ActivityTinhTrang.class);
+                intent.putExtra("date",chiTietSuDung.getNgaySuDung());
+                intent.putExtra("maTB",chiTietSuDung.getMaTB());
+                intent.putExtra("maPhong",chiTietSuDung.getMaPhong());
+                intent.putExtra("id",chiTietSuDung.getId());
+                context.startActivity(intent);
+            }
+        });
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

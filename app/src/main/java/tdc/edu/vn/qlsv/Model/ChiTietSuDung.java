@@ -20,6 +20,13 @@ public class ChiTietSuDung {
         this.soLuong = soLuong;
     }
 
+    public ChiTietSuDung(String maPhong, String ngaySuDung, int soLuong,String maTB) {
+        this.maPhong = maPhong;
+        this.ngaySuDung = ngaySuDung;
+        this.soLuong = soLuong;
+        this.maTB=maTB;
+    }
+
     public int getId() {
         return id;
     }

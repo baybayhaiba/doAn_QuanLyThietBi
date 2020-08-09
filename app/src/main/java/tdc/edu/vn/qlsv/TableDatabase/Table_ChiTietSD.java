@@ -10,4 +10,5 @@ public class Table_ChiTietSD {
     public static final String KEY_MATB="maThietBi";
     public static final String KEY_NGAYSD="ngaySuDung";
     public static final String KEY_SOLUONG="soLuong";
+
 }

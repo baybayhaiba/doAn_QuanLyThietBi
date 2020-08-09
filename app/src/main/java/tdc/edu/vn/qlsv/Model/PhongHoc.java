@@ -6,11 +6,28 @@ public class PhongHoc {
     private String loaiPhong;
     private int tang;
 
+    public byte[] getImagePhongHoc() {
+        return imagePhongHoc;
+    }
+
+    public void setImagePhongHoc(byte[] imagePhongHoc) {
+        this.imagePhongHoc = imagePhongHoc;
+    }
+
+    private byte[] imagePhongHoc;
     public PhongHoc(int id, String maPhong, String loaiPhong, int tang) {
         this.id = id;
         this.maPhong = maPhong;
         this.loaiPhong = loaiPhong;
         this.tang = tang;
+    }
+
+    public PhongHoc(int id, String maPhong, String loaiPhong, int tang, byte[] imagePhongHoc) {
+        this.id = id;
+        this.maPhong = maPhong;
+        this.loaiPhong = loaiPhong;
+        this.tang = tang;
+        this.imagePhongHoc = imagePhongHoc;
     }
 
     public int getId() {

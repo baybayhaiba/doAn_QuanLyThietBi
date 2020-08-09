@@ -106,9 +106,17 @@
 
         <EditText
             android:id="@+id/edit_ngaySuDung"
-            style="@style/editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:inputType="datetime" />
-
+        <ImageButton
+            android:id="@+id/bt_Calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_calendar_today_24"
+            android:background="@android:color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -123,8 +131,12 @@
         <EditText
             android:id="@+id/edit_soLuong"
             style="@style/editText"
-            android:layout_marginStart="40sp"
+            android:layout_marginStart="30sp"
             android:inputType="number" />
+
+
+
+
 
     </LinearLayout>
 

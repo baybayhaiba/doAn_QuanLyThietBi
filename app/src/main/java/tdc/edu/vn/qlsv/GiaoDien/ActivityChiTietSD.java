@@ -4,6 +4,7 @@ package tdc.edu.vn.qlsv.GiaoDien;
 //import androidx.appcompat.app.ActionBar;
 //import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,13 +17,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -30,11 +33,13 @@ import tdc.edu.vn.qlsv.Adapter.CustomAdapterCTSD;
 import tdc.edu.vn.qlsv.Database.DataCTSD;
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
+import tdc.edu.vn.qlsv.Database.DataTinhTrang;
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
+import tdc.edu.vn.qlsv.Model.TinhTrangThietBi;
 import tdc.edu.vn.qlsv.R;
 
 
-public class ActivityChiTietSD extends AppCompatActivity {
+public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     Spinner sp_maPhong, sp_MaThietBi;
     ArrayList<String> dataMaPhong;
     ArrayList<String> dataMaThietBi;
@@ -46,7 +51,9 @@ public class ActivityChiTietSD extends AppCompatActivity {
     RecyclerView listCTSD;
     int index = -1;
     Button bt_add, bt_remove, bt_update, bt_clear;
+    ImageButton bt_calendar;
     DataCTSD dataCTSD;
+    DataTinhTrang dataTinhTrang;
     ArrayAdapter<String> adapterMaPhong;
     ArrayAdapter<String> adapterMaTB;
 
@@ -103,6 +110,7 @@ public class ActivityChiTietSD extends AppCompatActivity {
                 ChiTietSuDung ctsd=ThemCTSD();
                 dataCTSD.themCTSD(ctsd);
                 chiTietSuDung.add(ctsd);
+                themTinhTrang(ctsd.getSoLuong());
                 Collections.sort(chiTietSuDung, new Comparator<ChiTietSuDung>() {
                     @Override
                     public int compare(ChiTietSuDung chiTietSuDung, ChiTietSuDung t1) {
@@ -143,7 +151,16 @@ public class ActivityChiTietSD extends AppCompatActivity {
         bt_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                sp_maPhong.setSelection(0);
+                sp_MaThietBi.setSelection(0);
+                edit_ngaySuDung.setText("");
+                edit_soLuong.setText("");
+            }
+        });
+        bt_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
             }
         });
         adapter.setListener(new CustomAdapterCTSD.ListenerCTSD() {
@@ -165,7 +182,19 @@ public class ActivityChiTietSD extends AppCompatActivity {
         });
     }
 
-
+    private void showDatePickerDialog(){
+        DatePickerDialog datePickerDialog=new DatePickerDialog(
+                ActivityChiTietSD.this,ActivityChiTietSD.this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
+    public void onDateSet(DatePicker view,int year,int month,int dayofMonth){
+        String textDate=String.format("%02d",(dayofMonth))+"/"+String.format("%02d",(month))+"/"+year;
+        edit_ngaySuDung.setText(textDate);
+    }
     private void setControl() {
         sp_maPhong = findViewById(R.id.sp_maPhong);
         sp_MaThietBi = findViewById(R.id.sp_MaThietBi);
@@ -175,12 +204,27 @@ public class ActivityChiTietSD extends AppCompatActivity {
         bt_update = findViewById(R.id.bt_update);
         bt_clear = findViewById(R.id.bt_clear);
         idCTSD=findViewById(R.id.idCTSD);
+        bt_calendar=findViewById(R.id.bt_Calendar);
         edit_ngaySuDung = findViewById(R.id.edit_ngaySuDung);
         edit_soLuong = findViewById(R.id.edit_soLuong);
         listCTSD = findViewById(R.id.listCTSD);
+
         listCTSD.setLayoutManager(new LinearLayoutManager(this));
     }
-
+    private void themTinhTrang(int soLuong){
+        dataTinhTrang=new DataTinhTrang(this);
+        int i;
+        String maTB,maPhongHoc,tinhTrang,ngaySuDung;
+        for(i=0;i<soLuong;i++){
+            maTB=sp_MaThietBi.getSelectedItem().toString();
+            maPhongHoc=sp_maPhong.getSelectedItem().toString();
+            tinhTrang="Tốt";
+            Toast.makeText(this, ""+maTB+maPhongHoc, Toast.LENGTH_SHORT).show();
+            ngaySuDung=edit_ngaySuDung.getText().toString();
+            TinhTrangThietBi modelTinhTrang=new TinhTrangThietBi(0,maPhongHoc,maTB,ngaySuDung,tinhTrang);
+            dataTinhTrang.themTinhTrangThietBi(modelTinhTrang);
+        }
+    }
     private ChiTietSuDung ThemCTSD() {
         int id=dataCTSD.MaxId()+1;
         String ngaySuDung = edit_ngaySuDung.getText().toString();

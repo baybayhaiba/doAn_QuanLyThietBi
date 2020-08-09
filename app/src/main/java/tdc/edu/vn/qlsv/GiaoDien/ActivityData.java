@@ -44,10 +44,12 @@ import tdc.edu.vn.qlsv.Database.DataCTSD;
 import tdc.edu.vn.qlsv.Database.DataLoaiThietBi;
 import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataThietBi;
+import tdc.edu.vn.qlsv.Database.DataTinhTrang;
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
 import tdc.edu.vn.qlsv.Model.LoaiThietBi;
 import tdc.edu.vn.qlsv.Model.PhongHoc;
 import tdc.edu.vn.qlsv.Model.ThietBi;
+import tdc.edu.vn.qlsv.Model.TinhTrangThietBi;
 import tdc.edu.vn.qlsv.Network.WebRequest;
 import tdc.edu.vn.qlsv.R;
 import tdc.edu.vn.qlsv.TableDatabase.Table_ChiTietSD;
@@ -248,6 +250,7 @@ public class ActivityData extends AppCompatActivity{
             else{
                 ArrayList<ChiTietSuDung> CTSD=new ArrayList<>();
                 DataCTSD databaseCTSD=new DataCTSD(ActivityData.this);
+                DataTinhTrang dataTinhTrang=new DataTinhTrang(ActivityData.this);
                 for(int i=0;i<getDataJson.size();i++){
                     HashMap<String,String> hashMap=getDataJson.get(i);
                     int id=Integer.parseInt(hashMap.get(Table_ChiTietSD.KEY_ID));
@@ -257,6 +260,9 @@ public class ActivityData extends AppCompatActivity{
                     int soLuong=Integer.parseInt(hashMap.get(Table_ChiTietSD.KEY_SOLUONG));
                     CTSD.add(new ChiTietSuDung(id,maPhong,maTB,ngaySD,soLuong));
                     databaseCTSD.themCTSD(CTSD.get(i));
+                    for(int j=0;j<soLuong;j++){
+                        dataTinhTrang.themTinhTrangThietBi(new TinhTrangThietBi(0,maPhong,maTB,ngaySD,"Tốt"));
+                    }
                 }
                 thongBao("Chi Tiết Sử Dụng").create().show();
                 listView.setAdapter(new ArrayAdapter<ChiTietSuDung>(ActivityData.this,

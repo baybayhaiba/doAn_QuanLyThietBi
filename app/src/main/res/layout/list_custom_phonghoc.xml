@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/cardView"
     android:layout_margin="5dp"
     app:cardCornerRadius="4dp"
-    app:cardElevation="4dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardElevation="4dp">
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    <!-- Name Label -->
-    <TextView
-        android:id="@+id/custom_maPhong"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dip"
-        android:paddingTop="6dip"
-        android:text="Name"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
 
-    <!-- Email label -->
-    <TextView
-        android:id="@+id/custom_tenPhong"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dip"
-        android:text="Email" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <!-- Name Label -->
+            <TextView
+                android:id="@+id/custom_maPhong"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dip"
+                android:paddingBottom="2dip"
+                android:text="Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <!-- Mobile number label -->
-    <TextView
-        android:id="@+id/custom_tangPhong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Mobile: " />
+            <!-- Email label -->
+            <TextView
+                android:id="@+id/custom_tenPhong"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dip"
+                android:text="Email" />
 
-
+            <!-- Mobile number label -->
+            <TextView
+                android:id="@+id/custom_tangPhong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Mobile: " />
+        </LinearLayout>
+    <ImageView
+        android:id="@+id/custom_imagePhongHoc"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
     </LinearLayout>
-
 </android.support.v7.widget.CardView>

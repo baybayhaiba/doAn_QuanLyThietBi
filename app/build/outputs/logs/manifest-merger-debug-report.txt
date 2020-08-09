@@ -1,20 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\526d9f6b50a536f7c36ea15e36638a25\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\fcf2c63bf789f99e62639892a5effdfc\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\93a69e3c56360785ebb99c66bc4f6e77\AndroidManifest.xml:17:1-22:12
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:2:1-11:12
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a95681989bb0782a7b97cc5002222ab\AndroidManifest.xml:2:1-14:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\e75adbd2e9fd8ef438cc45770378e8d6\AndroidManifest.xml:2:1-20:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\ba129367209761eec66b53fc4165b3d6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\63361daad0862fc0156b0a62bd93f44f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\de6ecc41cbfc0cf9ad93bb172fe8680f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\41e07642a7161497dac17974dd669899\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a73b18eac51f698a47f848ac7736ec0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:loader:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a29dc9f268e98ce079aaebc169807e73\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:viewpager:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\1f22b57e831bc7e52980f62615132764\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\d153f5ec2c3571b7b4d08c4526437ddd\AndroidManifest.xml:17:1-22:12
@@ -36,20 +39,20 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\phamt\.gradle\cac
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\88e4482f09ea01fb463ce59cfe19cb2a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a2714b739f7407303086eea909382691\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\b4b34016a19340a8f56eec51bbd9dfc7\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
 	package
 		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:3:5-30
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-47:12
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:1-49:12
 		INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:2:11-69
@@ -66,7 +69,9 @@ ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main
 	android:name
 		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:7:22-76
 application
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:9:5-45:19
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:9:5-47:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\526d9f6b50a536f7c36ea15e36638a25\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\526d9f6b50a536f7c36ea15e36638a25\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:9:5-20
@@ -91,70 +96,80 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\phamt\.gra
 		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
 		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:15:9-40
+activity#tdc.edu.vn.qlsv.GiaoDien.ActivityTinhTrang
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:16:9-73
+	android:name
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:16:19-61
+activity#tdc.edu.vn.qlsv.GiaoDien.ActivityAnalysisDetail
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:17:9-69
+	android:name
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:17:19-66
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityAnalysis
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:16:9-72
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:18:9-63
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:16:19-60
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:18:19-60
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityData
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:17:9-59
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:19:9-59
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:17:19-56
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:19:19-56
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityLoaiThietBi
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:18:9-20:32
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:20:9-22:32
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:20:13-29
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:22:13-29
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:19:13-57
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:21:13-57
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityChiTietSD
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:21:9-23:32
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:23:9-25:32
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:23:13-29
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:25:13-29
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:22:13-55
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:24:13-55
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityPhongHoc
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:24:9-26:32
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:26:9-28:32
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:26:13-29
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:28:13-29
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:25:13-54
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:27:13-54
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivityThietBi
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:27:9-29:32
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:29:9-31:32
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:29:13-29
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:31:13-29
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:28:13-53
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:30:13-53
 activity#tdc.edu.vn.qlsv.GiaoDien.MainActivity
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:30:9-32:41
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:32:9-34:41
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:32:13-38
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:34:13-38
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:31:13-50
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:33:13-50
 activity#tdc.edu.vn.qlsv.GiaoDien.DangNhap
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:33:9-35:45
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:35:9-37:45
 	android:label
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:35:13-42
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:37:13-42
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:34:13-46
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:36:13-46
 activity#tdc.edu.vn.qlsv.GiaoDien.ActivitySplash
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:36:9-44:20
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:38:9-46:20
 	android:theme
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:38:13-63
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:40:13-63
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:37:13-52
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:39:13-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:39:13-43:29
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:41:13-45:29
 action#android.intent.action.MAIN
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:40:17-69
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:40:25-66
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:42:17-77
+ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:44:17-77
 	android:name
-		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml:44:27-74
 uses-sdk
 INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
 INJECTED from C:\Androidstudio\backup_QLTB608\doAn_QuanLyThietBi3107_2\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\526d9f6b50a536f7c36ea15e36638a25\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\526d9f6b50a536f7c36ea15e36638a25\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\66d10508860ef2d4d04b920592983cff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\c56ac9562df6ceae435e419a3c0f5bf1\AndroidManifest.xml:5:5-7:41
@@ -167,6 +182,8 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\t
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\9fabdca9f4023047798ac80d55599cae\AndroidManifest.xml:5:5-7:41
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a95681989bb0782a7b97cc5002222ab\AndroidManifest.xml:5:5-44
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a95681989bb0782a7b97cc5002222ab\AndroidManifest.xml:5:5-44
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\e75adbd2e9fd8ef438cc45770378e8d6\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\e75adbd2e9fd8ef438cc45770378e8d6\AndroidManifest.xml:16:5-18:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\47cf37d70a7dbb262ac2e03f95eb604d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\ba129367209761eec66b53fc4165b3d6\AndroidManifest.xml:20:5-44
@@ -177,6 +194,8 @@ MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\phamt\.grad
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\de6ecc41cbfc0cf9ad93bb172fe8680f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\41e07642a7161497dac17974dd669899\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\41e07642a7161497dac17974dd669899\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a73b18eac51f698a47f848ac7736ec0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\4a73b18eac51f698a47f848ac7736ec0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a29dc9f268e98ce079aaebc169807e73\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\a29dc9f268e98ce079aaebc169807e73\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] C:\Users\phamt\.gradle\caches\transforms-2\files-2.1\1f22b57e831bc7e52980f62615132764\AndroidManifest.xml:20:5-44

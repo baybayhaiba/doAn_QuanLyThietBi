@@ -20,4 +20,10 @@
     <string name="phongHoc">Phòng Học</string>
     <string name="thietBi">Thiết Bị</string>
     <string name="exit">Exit</string>
+    <string-array name="spTinhTrang">
+        <item>Tốt</item>
+        <item>Cũ</item>
+        <item>Có thể sửa</item>
+        <item>Hư</item>
+    </string-array>
 </resources>

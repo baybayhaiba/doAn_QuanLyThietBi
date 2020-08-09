@@ -36,19 +36,20 @@
                 android:id="@+id/info_ngayCTSD"
                 style="@style/textViewCardView"
                 android:text="TEST" />
+            <TextView
+                android:id="@+id/info_soLuong"
+                style="@style/textViewCardView"
+                android:text="TEST" />
         </LinearLayout>
 
-        <TextView
-            android:layout_weight="2"
-            android:id="@+id/info_soLuong"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:fontFamily="monospace"
-            android:gravity="center"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:src="@drawable/choosepicture" />
+            android:id="@+id/info_detail"
+            android:src="@drawable/view_list"/>
+
+
 
     </LinearLayout>
 

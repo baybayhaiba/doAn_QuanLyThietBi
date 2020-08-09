@@ -6,10 +6,8 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -87,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         int countThietBi=new DataThietBi(this).getCount();
         int countPhongHoc=new DataPhongHoc(this).getCountPhongHoc();
         int countCTSD=new DataCTSD(this).getCountCTSD();
-        int countAnalysis=new DataCTSD(this).getInfomation().size();
+        int countAnalysis=new DataCTSD(this).getInformationYear().size();
         dataUI.add(new Main(R.drawable.mathietbi,"Mã Thiết Bị",countMaThietBi,Color.parseColor("#b794f6")));
         dataUI.add(new Main(R.drawable.thietbi,"Thiết Bị",countThietBi, Color.parseColor("#c6f68d")));
         dataUI.add(new Main(R.drawable.chitietsudung,"Chi Tiết Sử Dụng",countCTSD, Color.parseColor("#90ee02")));

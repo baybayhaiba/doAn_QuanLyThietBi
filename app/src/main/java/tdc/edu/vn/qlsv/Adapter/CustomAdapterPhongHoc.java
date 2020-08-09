@@ -1,5 +1,7 @@
 package tdc.edu.vn.qlsv.Adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -74,6 +76,7 @@ public class CustomAdapterPhongHoc extends RecyclerView.Adapter<CustomAdapterPho
         private TextView tvMaPhong;
         private TextView tvLoaiPhong;
         private TextView tvTangPhong;
+        private ImageView imgPhongHoc;
         private CardView cardView;
 
         public MyViewHolder(@NonNull CardView v) {
@@ -81,6 +84,7 @@ public class CustomAdapterPhongHoc extends RecyclerView.Adapter<CustomAdapterPho
             tvMaPhong=(TextView)v.findViewById(R.id.custom_maPhong);
             tvLoaiPhong=(TextView)v.findViewById(R.id.custom_tenPhong);
             tvTangPhong=(TextView)v.findViewById(R.id.custom_tangPhong);
+            imgPhongHoc=(ImageView)v.findViewById(R.id.custom_imagePhongHoc);
             cardView=v;
         }
     }
@@ -102,6 +106,15 @@ public class CustomAdapterPhongHoc extends RecyclerView.Adapter<CustomAdapterPho
         myViewHolder.tvMaPhong.setText(phongHoc.getMaPhong());
         myViewHolder.tvLoaiPhong.setText(phongHoc.getLoaiPhong());
         myViewHolder.tvTangPhong.setText(String.valueOf(phongHoc.getTang()));
+        if(phongHoc.getImagePhongHoc()==null){
+            myViewHolder.imgPhongHoc.setImageResource(R.drawable.choosepicture);
+        }
+        else {
+            Bitmap bitmapToImage = BitmapFactory.decodeByteArray
+                    (phongHoc.getImagePhongHoc(), 0, phongHoc.getImagePhongHoc().length);
+            myViewHolder.imgPhongHoc.setImageBitmap(Bitmap.
+                    createScaledBitmap(bitmapToImage,120,120,false));
+        }
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
