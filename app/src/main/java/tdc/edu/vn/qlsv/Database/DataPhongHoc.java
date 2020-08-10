@@ -46,6 +46,18 @@ public class DataPhongHoc {
        }
        return LoaiPhong ;
    }
+   public byte[] getImagePhongHoc(String maPhong){
+       SQLiteDatabase db=handler.getReadableDatabase();
+       String sql="SELECT "+Table_PhongHoc.KEY_IMAGE+" from " + Table_PhongHoc.TABLE_NAME +" " +
+               "where "+Table_PhongHoc.KEY_MAPHONG+" = '"+maPhong+"'";
+       Cursor cursor=db.rawQuery(sql,null);
+       if(cursor!=null && cursor.moveToFirst()){
+           if(!cursor.isNull(0)){
+               return cursor.getBlob(0);
+           }
+       }
+       return null;
+   }
    public void XoaMaPhong(PhongHoc MaPhong)
    {
        SQLiteDatabase db = handler.getWritableDatabase();

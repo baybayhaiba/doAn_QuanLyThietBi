@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,12 +44,12 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
     Spinner sp_maPhong, sp_MaThietBi;
     ArrayList<String> dataMaPhong;
     ArrayList<String> dataMaThietBi;
-    ArrayList<ChiTietSuDung> chiTietSuDung;
+    ArrayList<ChiTietSuDung> listCTSD;
     //luu tru database va lay tat ca
     CustomAdapterCTSD adapter;
     TextView idCTSD;
     EditText edit_ngaySuDung, edit_soLuong;
-    RecyclerView listCTSD;
+    RecyclerView recyclerViewCTSD;
     int index = -1;
     Button bt_add, bt_remove, bt_update, bt_clear;
     ImageButton bt_calendar;
@@ -93,28 +94,28 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             j++;
         }
 
-        adapterMaPhong=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataMaPhong);
-        adapterMaTB=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataMaThietBi);
+        adapterMaPhong = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataMaPhong);
+        adapterMaTB = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataMaThietBi);
         sp_MaThietBi.setAdapter(adapterMaTB);
         sp_maPhong.setAdapter(adapterMaPhong);
         dataCTSD = new DataCTSD(this);
-        chiTietSuDung=dataCTSD.getAllCTSD();
+        listCTSD = dataCTSD.getAllCTSD();
         adapter = new CustomAdapterCTSD(ActivityChiTietSD.this,
-                R.layout.list_custom_ctsd, chiTietSuDung);
-        listCTSD.setAdapter(adapter);
+                R.layout.list_custom_ctsd, listCTSD);
+        recyclerViewCTSD.setAdapter(adapter);
 
 
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChiTietSuDung ctsd=ThemCTSD();
+                ChiTietSuDung ctsd = ThemCTSD();
                 dataCTSD.themCTSD(ctsd);
-                chiTietSuDung.add(ctsd);
+                listCTSD.add(ctsd);
                 themTinhTrang(ctsd.getSoLuong());
-                Collections.sort(chiTietSuDung, new Comparator<ChiTietSuDung>() {
+                Collections.sort(listCTSD, new Comparator<ChiTietSuDung>() {
                     @Override
                     public int compare(ChiTietSuDung chiTietSuDung, ChiTietSuDung t1) {
-                        return t1.getId()-chiTietSuDung.getId();
+                        return t1.getId() - chiTietSuDung.getId();
                     }
                 });
                 adapter.notifyDataSetChanged();
@@ -124,11 +125,11 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             @Override
             public void onClick(View view) {
                 if (index != -1) {
-                    ChiTietSuDung ctsd=getCTSD();
+                    ChiTietSuDung ctsd = getCTSD();
                     dataCTSD.xoaCTSD(ctsd);
-                    chiTietSuDung.remove(index);
+                    listCTSD.remove(index);
                     adapter.notifyDataSetChanged();
-                    index=-1;
+                    index = -1;
                 } else
                     Toast.makeText(ActivityChiTietSD.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
             }
@@ -139,9 +140,10 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             public void onClick(View view) {
                 {
                     if (index != -1) {
-                        ChiTietSuDung ctsd=getCTSD();
+                        ChiTietSuDung ctsd = getCTSD();
+                        suaTinhTrang(index, ctsd);
                         dataCTSD.suaCTSD(ctsd);
-                        chiTietSuDung.set(index,ctsd);
+                        listCTSD.set(index, ctsd);
                         adapter.notifyDataSetChanged();
                     } else
                         Toast.makeText(ActivityChiTietSD.this, "Bạn chưa chọn bất cứ thứ gì", Toast.LENGTH_SHORT).show();
@@ -166,35 +168,37 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
         adapter.setListener(new CustomAdapterCTSD.ListenerCTSD() {
             @Override
             public void onClick(int position) {
-                index=position;
-                idCTSD.setText(String.valueOf(chiTietSuDung.get(position).getId()));
-                edit_ngaySuDung.setText(chiTietSuDung.get(position).getNgaySuDung());
-                edit_soLuong.setText(String.valueOf(chiTietSuDung.get(position).getSoLuong()));
-                int positionMaPhong = adapterMaPhong.getPosition(chiTietSuDung.get(position).getMaPhong());
-                int positionMaTB = adapterMaTB.getPosition(chiTietSuDung.get(position).getMaTB());
-                if(positionMaPhong!=-1){
+                index = position;
+                idCTSD.setText(String.valueOf(listCTSD.get(position).getId()));
+                edit_ngaySuDung.setText(listCTSD.get(position).getNgaySuDung());
+                edit_soLuong.setText(String.valueOf(listCTSD.get(position).getSoLuong()));
+                int positionMaPhong = adapterMaPhong.getPosition(listCTSD.get(position).getMaPhong());
+                int positionMaTB = adapterMaTB.getPosition(listCTSD.get(position).getMaTB());
+                if (positionMaPhong != -1) {
                     sp_maPhong.setSelection(positionMaPhong);
                 }
-                if(positionMaTB !=-1){
+                if (positionMaTB != -1) {
                     sp_MaThietBi.setSelection(positionMaTB);
                 }
             }
         });
     }
 
-    private void showDatePickerDialog(){
-        DatePickerDialog datePickerDialog=new DatePickerDialog(
-                ActivityChiTietSD.this,ActivityChiTietSD.this,
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                ActivityChiTietSD.this, ActivityChiTietSD.this,
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         );
         datePickerDialog.show();
     }
-    public void onDateSet(DatePicker view,int year,int month,int dayofMonth){
-        String textDate=String.format("%02d",(dayofMonth))+"/"+String.format("%02d",(month))+"/"+year;
+
+    public void onDateSet(DatePicker view, int year, int month, int dayofMonth) {
+        String textDate = String.format("%02d", (dayofMonth)) + "/" + String.format("%02d", (month)) + "/" + year;
         edit_ngaySuDung.setText(textDate);
     }
+
     private void setControl() {
         sp_maPhong = findViewById(R.id.sp_maPhong);
         sp_MaThietBi = findViewById(R.id.sp_MaThietBi);
@@ -203,45 +207,85 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
         bt_remove = findViewById(R.id.bt_remove);
         bt_update = findViewById(R.id.bt_update);
         bt_clear = findViewById(R.id.bt_clear);
-        idCTSD=findViewById(R.id.idCTSD);
-        bt_calendar=findViewById(R.id.bt_Calendar);
+        idCTSD = findViewById(R.id.idCTSD);
+        bt_calendar = findViewById(R.id.bt_Calendar);
         edit_ngaySuDung = findViewById(R.id.edit_ngaySuDung);
         edit_soLuong = findViewById(R.id.edit_soLuong);
-        listCTSD = findViewById(R.id.listCTSD);
+        recyclerViewCTSD = findViewById(R.id.listCTSD);
 
-        listCTSD.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewCTSD.setLayoutManager(new LinearLayoutManager(this));
     }
-    private void themTinhTrang(int soLuong){
-        dataTinhTrang=new DataTinhTrang(this);
-        int i;
-        String maTB,maPhongHoc,tinhTrang,ngaySuDung;
-        for(i=0;i<soLuong;i++){
-            maTB=sp_MaThietBi.getSelectedItem().toString();
-            maPhongHoc=sp_maPhong.getSelectedItem().toString();
-            tinhTrang="Tốt";
-            Toast.makeText(this, ""+maTB+maPhongHoc, Toast.LENGTH_SHORT).show();
-            ngaySuDung=edit_ngaySuDung.getText().toString();
-            TinhTrangThietBi modelTinhTrang=new TinhTrangThietBi(0,maPhongHoc,maTB,ngaySuDung,tinhTrang);
-            dataTinhTrang.themTinhTrangThietBi(modelTinhTrang);
-        }
-    }
+
     private ChiTietSuDung ThemCTSD() {
-        int id=dataCTSD.MaxId()+1;
+        int id = dataCTSD.MaxId() + 1;
         String ngaySuDung = edit_ngaySuDung.getText().toString();
         String MaThietBi = sp_MaThietBi.getSelectedItem().toString();
         String maPhong = sp_maPhong.getSelectedItem().toString();
         int MaLoai = Integer.parseInt(edit_soLuong.getText().toString());
-        ChiTietSuDung listdevice = new ChiTietSuDung(id,maPhong, MaThietBi, ngaySuDung, MaLoai);
+        ChiTietSuDung listdevice = new ChiTietSuDung(id, maPhong, MaThietBi, ngaySuDung, MaLoai);
         return listdevice;
     }
+
     private ChiTietSuDung getCTSD() {
-        int id=Integer.parseInt(idCTSD.getText().toString());
+        int id = Integer.parseInt(idCTSD.getText().toString());
         String ngaySuDung = edit_ngaySuDung.getText().toString();
         String MaThietBi = sp_MaThietBi.getSelectedItem().toString();
         String maPhong = sp_maPhong.getSelectedItem().toString();
         int SoLuong = Integer.parseInt(edit_soLuong.getText().toString());
-        ChiTietSuDung listdevice = new ChiTietSuDung(id,maPhong, MaThietBi, ngaySuDung, SoLuong);
+        ChiTietSuDung listdevice = new ChiTietSuDung(id, maPhong, MaThietBi, ngaySuDung, SoLuong);
         return listdevice;
+    }
+
+    private void themTinhTrang(int soLuong) {
+        dataTinhTrang = new DataTinhTrang(this);
+        int i;
+        String maTB, maPhongHoc, tinhTrang, ngaySuDung;
+        for (i = 0; i < soLuong; i++) {
+            maTB = sp_MaThietBi.getSelectedItem().toString();
+            maPhongHoc = sp_maPhong.getSelectedItem().toString();
+            tinhTrang = "Tốt";
+            ngaySuDung = edit_ngaySuDung.getText().toString();
+            TinhTrangThietBi modelTinhTrang = new TinhTrangThietBi(0, maPhongHoc, maTB, ngaySuDung, tinhTrang);
+            dataTinhTrang.themTinhTrangThietBi(modelTinhTrang);
+        }
+    }
+
+    private void suaTinhTrang(int position, ChiTietSuDung chiTietSuDung) {
+        ArrayList<TinhTrangThietBi> tinhTrangThietBi;
+        ArrayList<String> getDataChange = new ArrayList<>();
+        String oldmaTB = listCTSD.get(position).getMaTB();
+        String oldmaPhong = listCTSD.get(position).getMaPhong();
+        String oldNgaySuDung = listCTSD.get(position).getNgaySuDung();
+        int oldSoLuong = listCTSD.get(position).getSoLuong();
+        dataTinhTrang = new DataTinhTrang(this);
+        tinhTrangThietBi = dataTinhTrang.getTinhTrangTheoCTSD(oldNgaySuDung, oldmaTB, oldmaPhong);
+
+        for (TinhTrangThietBi tinhTrang : tinhTrangThietBi) {
+            if (!chiTietSuDung.getMaTB().equals(tinhTrang.getMaThietBi())) {
+                tinhTrang.setMaThietBi(chiTietSuDung.getMaTB());
+                dataTinhTrang.UpdateTinhTrang(tinhTrang);
+            }
+            if (!chiTietSuDung.getMaPhong().equals(tinhTrang.getMaPhong())) {
+                tinhTrang.setMaPhong(chiTietSuDung.getMaPhong());
+                dataTinhTrang.UpdateTinhTrang(tinhTrang);
+            }
+            if (!chiTietSuDung.getNgaySuDung().equals(tinhTrang.getNgaySuDung())) {
+                tinhTrang.setNgaySuDung(chiTietSuDung.getNgaySuDung());
+                dataTinhTrang.UpdateTinhTrang(tinhTrang);
+            }
+        }
+        if (chiTietSuDung.getSoLuong() != tinhTrangThietBi.size() && chiTietSuDung.getSoLuong()>=0) {
+            if (chiTietSuDung.getSoLuong() > tinhTrangThietBi.size()) {
+                for(int i=tinhTrangThietBi.size();i<chiTietSuDung.getSoLuong();i++){
+                    themTinhTrang(1);
+                }
+            }
+            else{
+                for(int i=tinhTrangThietBi.size();i>chiTietSuDung.getSoLuong();i--){
+                    dataTinhTrang.DeleteTinhTrang(tinhTrangThietBi.get(i-1).getId());
+                }
+            }
+        }
     }
 
     @Override

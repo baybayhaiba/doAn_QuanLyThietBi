@@ -7,19 +7,33 @@
     android:padding="16dp"
     tools:context=".GiaoDien.ActivityTinhTrang">
 
-    <TextView
-        android:id="@+id/title_tinhTrangThietBi"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:fontFamily="monospace"
-        android:textSize="20dp"
-        android:background="@android:color/holo_orange_dark"
-        android:textColor="@android:color/black"
-        android:gravity="center"
-        android:text="HEHEHEHHEEH"/>
+        android:id="@+id/linearLayoutInfomation"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="80sp"
+            android:layout_height="97sp"
+            android:id="@+id/getImagePhongHoc"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/title_tinhTrangThietBi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="monospace"
+            android:textSize="20dp"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:text="HEHEHEHHEEH"/>
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/title_tinhTrangThietBi"
+        android:layout_below="@id/linearLayoutInfomation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycleViewTinhTrang"/>

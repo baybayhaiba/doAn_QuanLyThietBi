@@ -1,6 +1,8 @@
 package tdc.edu.vn.qlsv.GiaoDien;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -11,7 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 
 import tdc.edu.vn.qlsv.Adapter.CustomAdapterTinhTrang;
 import tdc.edu.vn.qlsv.Database.DataCTSD;
+import tdc.edu.vn.qlsv.Database.DataPhongHoc;
 import tdc.edu.vn.qlsv.Database.DataTinhTrang;
 import tdc.edu.vn.qlsv.Model.ChiTietSuDung;
 import tdc.edu.vn.qlsv.Model.TinhTrangThietBi;
@@ -36,7 +39,9 @@ public class ActivityTinhTrang extends AppCompatActivity {
     private DataTinhTrang dataTinhTrang;
     private ArrayList<TinhTrangThietBi> listTinhTrang;
     private TextView title_tinhTrang;
+    private ImageView imgPhongHoc;
     private int idCTSD;
+    private DataPhongHoc dataPhongHoc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,9 @@ public class ActivityTinhTrang extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataTinhTrang=new DataTinhTrang(this);
         title_tinhTrang=findViewById(R.id.title_tinhTrangThietBi);
+        imgPhongHoc=findViewById(R.id.getImagePhongHoc);
+        dataPhongHoc=new DataPhongHoc(this);
+        listTinhTrang=new ArrayList<>();
     }
     private void setEvent(){
         fab.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +79,24 @@ public class ActivityTinhTrang extends AppCompatActivity {
         String getMaTB=getIntent().getExtras().get("maTB").toString();
         String getMaPhong=getIntent().getExtras().get("maPhong").toString();
         idCTSD=Integer.parseInt(getIntent().getExtras().get("id").toString());
-        Toast.makeText(this, ""+idCTSD, Toast.LENGTH_SHORT).show();
-        listTinhTrang=dataTinhTrang.getTinhTrangTheoNgay(getDate,getMaTB,getMaPhong);
-        title_tinhTrang.setText("Mã phòng học:"+listTinhTrang.get(0).getMaPhong()
-        +"\nMã thiết bị:"+listTinhTrang.get(0).getMaThietBi()+"\nNgày sử dụng:"+listTinhTrang.get(0).getNgaySuDung());
-        adapter=new CustomAdapterTinhTrang(this,listTinhTrang);
-        recyclerView.setAdapter(adapter);
+        byte[] images=dataPhongHoc.getImagePhongHoc(getMaPhong);
+        if (images != null) {
+            Bitmap bitmapToImage = BitmapFactory.decodeByteArray
+                    (images, 0, images.length);
+            imgPhongHoc.setImageBitmap(bitmapToImage);
+        }else{
+            imgPhongHoc.setImageResource(R.drawable.choosepicture);
+        }
+        listTinhTrang=dataTinhTrang.getTinhTrangTheoCTSD(getDate,getMaTB,getMaPhong);
+        if(!listTinhTrang.isEmpty()) {
+            title_tinhTrang.setText("Mã phòng học:"+listTinhTrang.get(0).getMaPhong()
+                    +"\nMã thiết bị:"+listTinhTrang.get(0).getMaThietBi()+"\nNgày sử dụng:"+listTinhTrang.get(0).getNgaySuDung());
+            adapter = new CustomAdapterTinhTrang(this, listTinhTrang);
+            recyclerView.setAdapter(adapter);
+        }else{
+            title_tinhTrang.setText("Mã phòng học:"+getMaPhong
+                    +"\nMã thiết bị:"+getMaTB+"\nNgày sử dụng:"+getDate);
+        }
 
     }
     @Override

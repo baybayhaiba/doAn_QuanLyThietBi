@@ -45,7 +45,7 @@ public class DataTinhTrang {
         }
         return listTinhTrang;
     }
-    public ArrayList<TinhTrangThietBi> getTinhTrangTheoNgay(String date,String maTB,String maPhong){
+    public ArrayList<TinhTrangThietBi> getTinhTrangTheoCTSD(String date, String maTB, String maPhong){
         ArrayList<TinhTrangThietBi> listTinhTrang=new ArrayList<>();
 
         SQLiteDatabase db=databaseHandler.getReadableDatabase();
