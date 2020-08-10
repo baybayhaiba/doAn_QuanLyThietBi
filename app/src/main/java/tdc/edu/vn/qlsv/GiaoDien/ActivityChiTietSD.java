@@ -108,17 +108,19 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChiTietSuDung ctsd = ThemCTSD();
-                dataCTSD.themCTSD(ctsd);
-                listCTSD.add(ctsd);
-                themTinhTrang(ctsd.getSoLuong());
-                Collections.sort(listCTSD, new Comparator<ChiTietSuDung>() {
-                    @Override
-                    public int compare(ChiTietSuDung chiTietSuDung, ChiTietSuDung t1) {
-                        return t1.getId() - chiTietSuDung.getId();
-                    }
-                });
-                adapter.notifyDataSetChanged();
+                if(isValid()) {
+                    ChiTietSuDung ctsd = ThemCTSD();
+                    dataCTSD.themCTSD(ctsd);
+                    listCTSD.add(ctsd);
+                    themTinhTrang(ctsd.getSoLuong());
+                    Collections.sort(listCTSD, new Comparator<ChiTietSuDung>() {
+                        @Override
+                        public int compare(ChiTietSuDung chiTietSuDung, ChiTietSuDung t1) {
+                            return t1.getId() - chiTietSuDung.getId();
+                        }
+                    });
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
         bt_remove.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +141,7 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             @Override
             public void onClick(View view) {
                 {
-                    if (index != -1) {
+                    if (index != -1 || isValid()) {
                         ChiTietSuDung ctsd = getCTSD();
                         suaTinhTrang(index, ctsd);
                         dataCTSD.suaCTSD(ctsd);
@@ -287,7 +289,26 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             }
         }
     }
+    private boolean isValid(){
+        boolean valid=true;
+        if(edit_ngaySuDung.getText().toString().equals("") ){
+            edit_ngaySuDung.setError("Làm ơn không bỏ trống");
+            edit_ngaySuDung.requestFocus();
+            valid=false;
+        }
+        if( edit_soLuong.getText().toString().equals("")){
+            edit_soLuong.setError("Làm ơn không bỏ trống");
+            edit_soLuong.requestFocus();
+            valid=false;
+        }
 
+        if(!(edit_soLuong.getText().toString().equals("")) &&Integer.parseInt(edit_soLuong.getText().toString())<0){
+            edit_soLuong.setError("Làm ơn nhập lớn hơn hoặc bằng 0");
+            edit_soLuong.requestFocus();
+            valid=false;
+        }
+        return valid;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
