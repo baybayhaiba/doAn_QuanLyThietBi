@@ -302,6 +302,7 @@ public class ActivityChiTietSD extends AppCompatActivity implements DatePickerDi
             valid=false;
         }
 
+        //text
         if(!(edit_soLuong.getText().toString().equals("")) &&Integer.parseInt(edit_soLuong.getText().toString())<0){
             edit_soLuong.setError("Làm ơn nhập lớn hơn hoặc bằng 0");
             edit_soLuong.requestFocus();
